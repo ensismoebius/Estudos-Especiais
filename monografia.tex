@@ -57,6 +57,7 @@
 \usepackage{setspace}
 \usepackage{array}
 \usepackage{helvet}
+
 \renewcommand{\familydefault}{\sfdefault}
 \headheight 16pt
 \setlength{\topmargin}{-15pt} % extra vert. space + at the top of header: 23pt
@@ -222,52 +223,281 @@
 			Em seguida apresentar-se-á uma revisão bibliográfica finalizando com o cronograma previsto.
 		\end{myenv}
 
-	\chapter{Revisão de conceitos}
+	\chapter{Revisão de Bibliográfica}
 		\begin{myenv}{1.5}
-			\section{Lógica paraconsistente}
-			\par Quando se trata de medir fenômenos até dentro de um domínio ideal os mesmos podem vir com uma certa dose de incerteza. No contexto da análise de sinais, dadas a similaridades e ruídos presentes esta ambiguidade tende a ficar ainda mais evidente.
-			\par Já que a lógica clássica tem dificuldade de lidar com tais cenários eis que a paraconsistente entra.
-			\par Nesta abordagem é possível se definir \textit{"níveis de verdade"} dado um valor a ser medido. Por exemplo, quão próximo de um adulto ou uma criança está alguém de 17 anos? Ou ainda, qual a proximidade de uma vogal dita por um locutor do som de \textbf{"e"} ou \textbf{"i"}? 
+			\section{Conceitos utilizados}
+					\subsection{Engenharia paraconsistente de características}
+						\par Dentro do processo de classificação frequentemente surge a questão:\\
+						Os vetores de características criados proporcionam uma boa separação de classes?
+						
+						\par O método de cálculo do plano paraconsistente é uma ferramenta que pode ser usada para responder essa questão.
+						
+						\par O processo inicia-se após a aquisição dos vetores de características ($C_ns_m$) para cada classe ($C_n$) onde $n$ é o índice de cada uma delas e $m$ indica qual vetor se está trabalhando dentro de $C_n$. Se o número de classes presentes for, por exemplo, \textbf{quatro} então estas poderão ser representadas por $C_1, C_2, C_3, C_4$. Se for necessário, por exemplo, indicar que se está trabalhando com o \textbf{vetor um} dentro da \textbf{classe dois} então teremos a notação $C_2s_1$.
+						\par Em seguida será necessário o cálculo de duas grandezas:
+						
+						\begin{itemize}
+							\item A menor similaridade intraclasse ($\alpha$).
+							\item A razão de sobreposição interclasse ($\beta$)
+						\end{itemize}
+					
+						\par $\alpha$ indica o quanto de similaridade os dados têm entre si dentro de uma mesma classe, $\beta$ mostra a razão de sobreposição entre diferentes classes. Idealmente $\alpha$ deve ser maximizada e $\beta$ minimizada para um desempenho ótimo dos classificadores.
+						
+						\par Inicialmente é necessária a normalização dos vetores de características de forma que a soma de todos os seus valores seja um.
+						
+						\par Em seguida a obtenção de $\alpha$ se dá selecionando-se os maiores e os menores valores de cada uma das posições de todos os vetores de características de cada classe gerando assim um vetor para os valores maiores e outro para os menores.
+						
+						\par O \textbf{vetor de similaridade}$(svC_n)$ é obtido fazendo-se a diferença item-a-item dos maiores em relação aos menores.
+						
+						\par Finalmente e para cada classe é tirada a média dos valores de cada vetor de similaridade, $\alpha$ é o menor valor dentre essas médias.
+						
+						\par A figura \ref{fig:calculoalpha} ilustra este processo.
+						
+						\begin{figure}[h]
+							\centering
+							\includegraphics[width=0.6\linewidth]{images/calculoAlpha.pdf}
+							\caption{Cálculo de $\alpha$}
+							\label{fig:calculoalpha}
+						\end{figure}
+						
+						\par A obtenção de $\beta$ também se dá selecionando-se os maiores e os menores valores de cada uma das posições de todos os vetores de características de cada classe gerando assim um vetor para os valores maiores e outro para os menores.
+						
+						\par Na sequência se segue com o cálculo de $R$ cujo valor é a quantidade de vezes que um valor do vetor de características de uma classe se encontra no intervalo de valores maiores e menores de outra classe.
+						
+						\par É necessário o cálculo de $F$ que é o número máximo de sobreposições possíveis entre classes e é dado por:
+						\begin{equation}
+								F=N.(N-1).X.T
+						\end{equation}
+						Onde:
+						\begin{itemize}
+							\item N é a quantidades de classes.
+							\item X é quantidade de vetores de características por classe.
+							\item T é o tamanho do vetor de características.
+						\end{itemize}
+
+						\par Finalmente, $\beta$ é calculado:
+						\begin{equation}
+							\beta=\dfrac{R}{F}
+						\end{equation}
+					
+						\par Nesse ponto é importante notar que $\alpha=1$ sugere fortemente que os vetores de características de cada classe são similares e representam suas respectivas classes precisamente. Complementarmente $\beta=0$ sugere os vetores de características de classes diferentes não se sobrepõe \cite{8588433}.
+						
+						\begin{itemize}
+							\item Verdade $\rightarrow$ Fé total ($\alpha = 1$) e nenhum discrédito ($\beta = 0$)
+							\item Ambiguidade $\rightarrow$ Fé total ($\alpha = 1$) e discrédito total ($\beta = 1$)
+							\item Falsidade $\rightarrow$ Fé nula ($\alpha = 0$) e discrédito total ($\beta = 1$)
+							\item Indefinição $\rightarrow$ Fé nula ($\alpha = 0$) e discrédito total ($\beta = 0$)
+						\end{itemize}
+						
+						\par No entanto, raramente $\alpha$ e $\beta$ terão tais valores, na maioria do tempo $0 \leqslant \alpha \leqslant 1$ e $0 \leqslant \beta \leqslant 1$, por isso, se torna necessário o cálculo do \textbf{grau de certeza}($G_1$) e do \textbf{grau de contradição}($G_2$).
+						
+						\begin{equation}
+							G_1=\alpha-\beta 
+						\end{equation}
+						\begin{equation}
+							G_2=\alpha+\beta-1
+						\end{equation}
+					
+					Onde:
+					\begin{itemize}
+						\item $-1 \leqslant G_1$
+						\item $1 \geqslant G_2$
+					\end{itemize}
+				
+					\par Os valores de $G_1$ e $G_2$ em conjunto definem os graus entre verdade e falsidade, ou seja, $G_1=-1$ e $G_1=1$ respectivamente e também os graus entre indefinição e ambiguidade, ou seja, $G_2=-1$ e $G_2=1$ respectivamente.
+					
+					\par O plano paraconsistente para fins de visualização e maior rapidez na avaliação dos resultados como ilustrado na figura \ref{fig:paraconsistentplane} tem quatro cantos definidos:
+					\begin{itemize}
+						\item (-1,0) $\rightarrow$ Falsidade.
+						\item (1,0) $\rightarrow$ Verdade.
+						\item (0,-1) $\rightarrow$ Indefinição.
+						\item (0,1) $\rightarrow$ Ambiguidade.
+					\end{itemize}
+				
+					\par É importante perceber que na figura \ref{fig:paraconsistentplane} existe um pequeno círculo, este indica onde se encontram as classes nos graus explicados da listagem anterior.
+				
+					\par Para se ter ideia em que área exatamente se encontram as classes avaliadas se deve calcular as distâncias$(D)$ do ponto $P=(G_1,G_2)$ dos limites supracitados. Tal calculo pode ser feito da seguinte forma:
+					\begin{equation}
+						D_{-1,0}=\sqrt{(G_1+1)^2+(G_2)^2}			
+					\end{equation}
+					\begin{equation}
+						D_{1,0}=\sqrt{(G_1-1)^2+(G_2)^2}			
+					\end{equation}
+					\begin{equation}
+						D_{0,-1}=\sqrt{(G_1)^2+(G_2+1)^2}			
+					\end{equation}
+					\begin{equation}
+						D_{0,1}=\sqrt{(G_1)^2+(G_2-1)^2}			
+					\end{equation}		
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.6\linewidth]{images/paraconsistentPlane.pdf}
+						\caption{O plano paraconsistente}
+						\label{fig:paraconsistentplane}
+					\end{figure}
+
+				\subsection{Filtros digitais usando wavelets}
+					\par Filtros digitais baseados na transformada Wavelet vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. Wavelets contam com variadas função-filtro e tem tamanho de janela variável o que permite uma análise multi-resolução \cite{Rod5254905}.
+					\par As wavelets proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
+					\par No tocante a sua aplicação no problema a ser tratado a abordagem wavelet será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
+					
+					\subsubsection{Mother wavelets}
+					Os filtros digitais baseados em wavelets são construidos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura \ref{fig:wavelets} mostra algumas das principais \textit{mother wavelets}.
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.7\linewidth]{images/wavelets}
+						\caption{Algumas mother wavelets}
+						\label{fig:wavelets}
+					\end{figure}
+					
+					No contexto dos filtros digitais baseados em wavelets o tamanho da janela recebe o nome de \textbf{suporte}, quando este é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}. As \textbf{mother wavelets}, para serem classificadas como tal, \textbf{necessariamente} precisam ter suporte compacto além de \textbf{integral igual a zero}.
+					\begin{equation}
+						\begin{aligned}
+							&\int_{\mathbb{R}} \frac{|\Psi(w)^2|}{|w|} . dw < \infty\\
+							&\int_{\mathbb{R}} \psi(w) . dw = 0
+						\end{aligned}
+					\end{equation}
+					Onde:
+					\begin{itemize}
+						\item $w$ é uma variável independente tal que $w \in \mathbb{R}$
+						\item $\psi(w)$ é a função candidata a wavelet.
+						\item $\Psi(w)$ é a transformada continua de Fourier da função $\psi(w)$.
+					\end{itemize}
+				
+					\par Devido aos seus diversos formatos cada \textit{mother wavelet} tem propriedades distintas, assim sendo, dependendo do objetivo da filtragem se pode escolher uma ou outra.
+					
+					\par Se diz que uma \textit{mother wavelet} tem boa \textbf{resposta em frequência} quando da aplicação da mesma na filtragem das frequências não são causadas muitas pertubações indesejadas ao sinal, as wavelets de Daubechies se destacam neste quesito por serem \textit{maximamente planas} (Maximally-flat) nos platôs de resposta em frequência como indicado na figura \ref{fig:daubechies}.
+
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.3\linewidth]{images/daubechies}
+						\caption{Platôs maximamente planos em um filtro digital}
+						\label{fig:daubechies}
+					\end{figure}
+
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.3\linewidth]{images/noMaximallyFlat}
+						\caption{Platôs não maximamente planos de um filtro digital}
+						\label{fig:nomaximallyflat}
+					\end{figure}
+				
+					\par Além da resposta em frequência a aplicação de um filtro digital baseado em wavelets também pode gerar o que se chama de \textbf{resposta em fase}, esse deslocamento pode ser \textbf{linear}, \textbf{quase linear} ou \textbf{não linear}. 
+					
+					\begin{itemize}
+						\item Na resposta em fase \textbf{linear} há o mesmo deslocamento de fase para todos os componentes do sinal.
+						\item Quando a resposta em fase é \textbf{quase linear} existe uma pequena diferença no deslocamento dos diferentes componentes do sinal.
+						\item Finalmente, quando a resposta é \textbf{não linear} acontece um deslocamento significativamente heterogêneo para as diferentes frequências formantes do sinal.
+ 					\end{itemize}
+					
+					\par Idealmente é desejável que todo filtro apresente boa resposta em frequência e resposta em fase linear.
+					
+					\begin{table}[h]
+						\centering
+						\begin{tabular}{|c|c|c|}
+								\hline 
+								\textbf{Wavelet} & \textbf{Resposta em frequência} & \textbf{Resposta em fase} \\ 
+								\hline 
+								Haar & Pobre &  Linear \\ 
+								\hline 
+								Daubechies & Quanto maior o suporte, melhor. \textit{Maximally-flat}  &  Não linear \\ 
+								\hline 
+								Symmlets & Quanto maior o suporte, melhor. Não \textit{Maximally-flat} & Quase linear \\ 
+								\hline 
+								Coiflets & Quanto maior o suporte, melhor. Não \textit{Maximally-flat} & Quase linear \\ 
+								\hline 
+						\end{tabular} 
+						\caption{Algumas wavelets mais populares e suas propriedades}
+						\label{tab:waveletsProperties}
+					\end{table}
+				
+				\subsubsection{O algoritmo de malat}
+				\par O algoritmo de Malat torna aplicação das wavelets no sinal em uma simples multiplicação de matrizes, o sinal que deve ser transformado se torna uma matriz linear vertical já os filtros passa-baixa e passa-alta tornam-se, nessa ordem, linhas de uma matriz quadrada que será completada segundo regras que serão mostradas mais adiante.
+				\par É importante que essa matriz quadrada tenha de aresta a mesma quantidade de itens que o nosso sinal, ou seja, se o sinal tem quatro elementos então a matriz de filtros deve ser uma de 4x4.
+				\par Uma coisa interessante a se notar é que, para que seja possível a transformada wavelet, basta ter disponível o filtro passa-baixa construído a partir da \textit{mother wavelet} já que o filtro passa-alta pode ser construído a partir da ortogonalidade do primeiro.
+				\par A título de exemplo considere:
+				\par O filtro passa baixa baseado na wavelet Haar:
+				$h[\cdot] = [\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}]$.
+				
+				\par E seu respectivo valor ortogonal:
+				$g[\cdot] = [\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}]$.
+				
+				\par Considere também o seguinte sinal:	$sinal = [1,2,3,4]$.
+
+				\par Se o tamanho do sinal a ser tratado é quatro, ou seja, o sinal tem quatro pulsos, e se pretende-se aplicar o filtro Haar, a seguinte matriz é construída:
+				\begin{equation}
+					\begin{pmatrix}
+						\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0\\
+						\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}, 0, 0\\
+						0, 0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\\
+						0, 0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\\
+					\end{pmatrix} 
+				\end{equation}
+				\par No entanto, filtros Haar tem apenas dois valores e, necessariamente, a linha da matriz deve ter quatro itens. Para resolver este problema basta completar cada uma das linhas com zeros. A matriz é montada de forma que a mesma seja ortogonal.
+
+				\par Montada a matriz de filtros segue-se com os cálculos da transformada:
+				\begin{equation}
+					\begin{pmatrix}
+						\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0\\
+						\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}, 0, 0\\
+						0, 0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\\
+						0, 0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\\
+					\end{pmatrix} 
+					.
+					\begin{pmatrix}
+						1\\
+						2\\
+						3\\
+						4\\
+					\end{pmatrix} 
+					=
+					\begin{pmatrix}
+						\frac{3}{\sqrt{2}}\\
+						\frac{-1}{\sqrt{2}}\\
+						\frac{7}{\sqrt{2}}\\
+						\frac{-1}{\sqrt{2}}\\
+					\end{pmatrix}
+				\end{equation}
+				
+				\par Feita a multiplicação é necessário agora montar o sinal filtrado, isso é feito escolhendo, dentro do resultado, valores alternadamente de forma que o vetor resultante seja:
+
+				\begin{equation}
+					resultado = \Big[
+					\frac{3}{\sqrt{2}},
+					\frac{7}{\sqrt{2}},
+					\frac{-1}{\sqrt{2}},
+					\frac{-1}{\sqrt{2}}
+					\Big]
+				\end{equation}
 			
-			\section{Filtros digitais usando wavelets}
-			\section{Caracterização dos processos de produção da voz humana}
-			\section{Amostragem, quantização}
-		
+				\subsection{Amostragem, quantização e o formato do arquivo Wave}
+					\par Serão usados arquivos no formato \textit{wave} usando \textit{pulse-code modulation} (PCM), neste esquema os dados são armazenados sem perdas. O arquivo, segundo \cite{WAVE2019}, se estrutura como o ilustrado na figura \ref{fig:wavePcmStructure}.
+					
+					\par A taxa de amostragem de 44100hz permite, segundo o teorema de Nyquist, que seja feita a quantização de frequências de até 22050hz a uma resolução de 16bits.
+				
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.7\linewidth]{images/wavePcmStructure}
+						\caption{Estrutura do arquivo Wave com PCM}
+						\label{fig:wavePcmStructure}
+					\end{figure}
+					
+					\par A estrutura de interesse se localiza na última parte do arquivo, mais especificamente no bloco "data", aqui os dados são organizados como um grande vetor de números, cada um deles, indicando a intensidade do sinal naquele ponto.
+				\subsection{Caracterização dos processos de produção da voz humana}
+
+				\subsubsection{Duvidas}
+					\par Como o tamanho da janela funciona em wavelet? Pensei que o tamanho da janela era dado pela função de escalamento da wavelet.
+					\par Como eu defino o tamanho da janela no algoritmo de Malat?
+					
+					\par O número de sobre posições no cálculo de R é de valor ou de intervalo?
+
+		\section{Trabalhos correlatos}
+			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de áudio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
 		\end{myenv}
 
-	\chapter{Revisão Bibliográfica}
+	\chapter{Cronograma para conclusão do curso de mestrado}
 		\begin{myenv}{1.5}
-			\par 
+			\par Preparação da base dados e cronograma
 		\end{myenv}
-	
-	\label{c_rl}
-	\begin{myenv}{1.5}
-		\textit{Neste Capítulo....}
-		\section{XXXXX}
-		\par Os sinais.... de acordo com a Figura \ref{sinaldigital}, observa-se que....
-		
-		\begin{figure}
-			\centering 
-			\begin{tikzpicture} 
-					\begin{axis}[height=3cm,width=9cm,xlabel=tempo,ylabel=amplitude, xmin=-1,xmax=19, xtick={0,9,18}, ymin=-0.1,ymax=1.1,ytick={0,1}]
-					\addplot[gray,dotted,mark=none,domain=-1:19,samples=2]{0};
-					\addplot[brown] coordinates{
-					(0,0.08208)(1,0.10316)(2,0.14718)(3,0.21919)(4,0.26128)(5,0.31235)(6,0.36336)(7,0.42241)(8,0.48649)(9,0.53854)(10,0.58855)(11,0.63360)(12,0.69369)(13,0.73272)(14,0.77173)(15,0.81879)(16,0.85689)(17,0.88891)(18,0.91892)
-					};
-					\addplot[green] coordinates{
-					(0,0.02202)(1,0.07007)(2,0.10210)(3,0.16016)(4,0.17117)(5,0.17818)(6,0.18418)(7,0.23323)(8,0.28128)(9,0.34735)(10,0.36036)(11,0.36737)(12,0.44244)(13,0.52953)(14,0.54555)(15,0.60160)(16,0.71471)(17,0.73473)(18,0.89890)
-					};
-				\end{axis}
-			\end{tikzpicture}
-			\caption{representação de dois sinais digitais.}
-			\label{sinaldigital}
-		\end{figure}
-		\par Assim sendo.... de acordo com o artigo \cite{mllp}, observa-se que....
-	\end{myenv}
-
-
-	
-
 
 	\bibliography{bibliography.bib}
 	\bibliographystyle{alpha}
