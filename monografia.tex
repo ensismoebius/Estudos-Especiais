@@ -232,7 +232,7 @@
 						
 						\par O método de cálculo do plano paraconsistente é uma ferramenta que pode ser usada para responder essa questão.
 						
-						\par O processo inicia-se após a aquisição dos vetores de características ($C_ns_m$) para cada classe ($C_n$) onde $n$ é o índice de cada uma delas e $m$ indica qual vetor se está trabalhando dentro de $C_n$. Se o número de classes presentes for, por exemplo, \textbf{quatro} então estas poderão ser representadas por $C_1, C_2, C_3, C_4$. Se for necessário, por exemplo, indicar que se está trabalhando com o \textbf{vetor um} dentro da \textbf{classe dois} então teremos a notação $C_2s_1$.
+						\par O processo inicia-se após a aquisição dos vetores de características para cada classe ($C_n$) onde $n$ é o índice de cada uma delas. Se o número de classes presentes for, por exemplo, \textbf{quatro} então estas poderão ser representadas por $C_1, C_2, C_3, C_4$.
 						\par Em seguida será necessário o cálculo de duas grandezas:
 						
 						\begin{itemize}
@@ -259,7 +259,7 @@
 							\label{fig:calculoalpha}
 						\end{figure}
 						
-						\par A obtenção de $\beta$ também se dá selecionando-se os maiores e os menores valores de cada uma das posições de todos os vetores de características de cada classe gerando assim um vetor para os valores maiores e outro para os menores.
+						\par A obtenção de $\beta$, assim como ilustrado na figura \ref{fig:betacalculation}, também se dá selecionando-se os maiores e os menores valores de cada uma das posições de todos os vetores de características de cada classe gerando assim um vetor para os valores maiores e outro para os menores.
 						
 						\par Na sequência se segue com o cálculo de $R$ cujo valor é a quantidade de vezes que um valor do vetor de características de uma classe se encontra no intervalo de valores maiores e menores de outra classe.
 						
@@ -281,30 +281,34 @@
 					
 						\par Nesse ponto é importante notar que $\alpha=1$ sugere fortemente que os vetores de características de cada classe são similares e representam suas respectivas classes precisamente. Complementarmente $\beta=0$ sugere os vetores de características de classes diferentes não se sobrepõe \cite{8588433}.
 						
+						\begin{figure}[h]
+							\centering
+							\includegraphics[width=0.55\linewidth]{images/betaCalculation.pdf}
+							\caption{Cálculo de $\beta$}
+							\label{fig:betacalculation}
+						\end{figure}
+						
+						
 						\begin{itemize}
-							\item Verdade $\rightarrow$ Fé total ($\alpha = 1$) e nenhum discrédito ($\beta = 0$)
-							\item Ambiguidade $\rightarrow$ Fé total ($\alpha = 1$) e discrédito total ($\beta = 1$)
-							\item Falsidade $\rightarrow$ Fé nula ($\alpha = 0$) e discrédito total ($\beta = 1$)
-							\item Indefinição $\rightarrow$ Fé nula ($\alpha = 0$) e discrédito total ($\beta = 0$)
+							\item Verdade $\rightarrow$ Fé total ($\alpha = 1$) e nenhum descrédito ($\beta = 0$)
+							\item Ambiguidade $\rightarrow$ Fé total ($\alpha = 1$) e descrédito total ($\beta = 1$)
+							\item Falsidade $\rightarrow$ Fé nula ($\alpha = 0$) e descrédito total ($\beta = 1$)
+							\item Indefinição $\rightarrow$ Fé nula ($\alpha = 0$) e descrédito total ($\beta = 0$)
 						\end{itemize}
 						
 						\par No entanto, raramente $\alpha$ e $\beta$ terão tais valores, na maioria do tempo $0 \leqslant \alpha \leqslant 1$ e $0 \leqslant \beta \leqslant 1$, por isso, se torna necessário o cálculo do \textbf{grau de certeza}($G_1$) e do \textbf{grau de contradição}($G_2$).
-						
 						\begin{equation}
 							G_1=\alpha-\beta 
 						\end{equation}
 						\begin{equation}
 							G_2=\alpha+\beta-1
 						\end{equation}
-					
 					Onde:
 					\begin{itemize}
 						\item $-1 \leqslant G_1$
 						\item $1 \geqslant G_2$
 					\end{itemize}
-				
 					\par Os valores de $G_1$ e $G_2$ em conjunto definem os graus entre verdade e falsidade, ou seja, $G_1=-1$ e $G_1=1$ respectivamente e também os graus entre indefinição e ambiguidade, ou seja, $G_2=-1$ e $G_2=1$ respectivamente.
-					
 					\par O plano paraconsistente para fins de visualização e maior rapidez na avaliação dos resultados como ilustrado na figura \ref{fig:paraconsistentplane} tem quatro cantos definidos:
 					\begin{itemize}
 						\item (-1,0) $\rightarrow$ Falsidade.
@@ -312,10 +316,9 @@
 						\item (0,-1) $\rightarrow$ Indefinição.
 						\item (0,1) $\rightarrow$ Ambiguidade.
 					\end{itemize}
-				
 					\par É importante perceber que na figura \ref{fig:paraconsistentplane} existe um pequeno círculo, este indica onde se encontram as classes nos graus explicados da listagem anterior.
-				
 					\par Para se ter ideia em que área exatamente se encontram as classes avaliadas se deve calcular as distâncias$(D)$ do ponto $P=(G_1,G_2)$ dos limites supracitados. Tal calculo pode ser feito da seguinte forma:
+
 					\begin{equation}
 						D_{-1,0}=\sqrt{(G_1+1)^2+(G_2)^2}			
 					\end{equation}
@@ -328,20 +331,21 @@
 					\begin{equation}
 						D_{0,1}=\sqrt{(G_1)^2+(G_2-1)^2}			
 					\end{equation}		
+					\newpage
 					\begin{figure}[h]
 						\centering
-						\includegraphics[width=0.6\linewidth]{images/paraconsistentPlane.pdf}
+						\includegraphics[width=0.7\linewidth]{images/paraconsistentPlane.pdf}
 						\caption{O plano paraconsistente}
 						\label{fig:paraconsistentplane}
 					\end{figure}
 
 				\subsection{Filtros digitais usando wavelets}
-					\par Filtros digitais baseados na transformada Wavelet vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. Wavelets contam com variadas função-filtro e tem tamanho de janela variável o que permite uma análise multi-resolução \cite{Rod5254905}.
+					\par Filtros digitais baseados na transformada Wavelet vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. Wavelets contam com variadas função filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
 					\par As wavelets proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
 					\par No tocante a sua aplicação no problema a ser tratado a abordagem wavelet será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
 					
 					\subsubsection{Mother wavelets}
-					Os filtros digitais baseados em wavelets são construidos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura \ref{fig:wavelets} mostra algumas das principais \textit{mother wavelets}.
+					Os filtros digitais baseados em wavelets são construídos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura \ref{fig:wavelets} mostra algumas das principais \textit{mother wavelets}.
 					\begin{figure}[h]
 						\centering
 						\includegraphics[width=0.7\linewidth]{images/wavelets}
@@ -410,7 +414,7 @@
 						\label{tab:waveletsProperties}
 					\end{table}
 				
-				\subsubsection{O algoritmo de malat}
+				\subsubsection{O algoritmo de Malat}
 				\par O algoritmo de Malat torna aplicação das wavelets no sinal em uma simples multiplicação de matrizes, o sinal que deve ser transformado se torna uma matriz linear vertical já os filtros passa-baixa e passa-alta tornam-se, nessa ordem, linhas de uma matriz quadrada que será completada segundo regras que serão mostradas mais adiante.
 				\par É importante que essa matriz quadrada tenha de aresta a mesma quantidade de itens que o nosso sinal, ou seja, se o sinal tem quatro elementos então a matriz de filtros deve ser uma de 4x4.
 				\par Uma coisa interessante a se notar é que, para que seja possível a transformada wavelet, basta ter disponível o filtro passa-baixa construído a partir da \textit{mother wavelet} já que o filtro passa-alta pode ser construído a partir da ortogonalidade do primeiro.
@@ -483,6 +487,24 @@
 					
 					\par A estrutura de interesse se localiza na última parte do arquivo, mais especificamente no bloco "data", aqui os dados são organizados como um grande vetor de números, cada um deles, indicando a intensidade do sinal naquele ponto.
 				\subsection{Caracterização dos processos de produção da voz humana}
+					\par A fala possui três grandes áreas de estudo: fisiológica (ou fonética articulatória),  acústica  (ou fonética acústica)  e  perceptual  (ou  comumente  chamada percepção  da  fala) \cite{kremer2014eficiencia}.
+					\par Neste trabalho o foco será apenas na acústica, já que não serão analisados aspectos da fisiologia relacionada a voz e sim o sinal sonoro propriamente dito.
+					
+					\subsubsection{Frequência fundamental da voz}
+						\par Também conhecida como $f_0$ é o componente periódico resultante da vibração das pregas vocais, em termos de percepção se pode interpretar $f_0$ como o tom da voz (pitch) \cite{kremer2014eficiencia}.
+					
+						\par Vozes agudas tem um pitch alto, vozes mais graves tem um pitch baixo, a alteração do pitch durante a fala é definido como entonação.
+						
+						\par A frequência fundamental da voz é a velocidade na qual uma forma de onda se repete
+						por unidade de tempo, ou seja, o número de ciclos vibratórios produzidos pelas pregas vocais, num segundo, sendo assim, as medidas de $f_0$ geralmente são apresentadas em Hz \cite{freitas2013avaliaccao}.
+					
+						\par A medição de $f_0$ está sujeita a contaminações surgidas das variações naturais de \textit{pitch} tipicas da voz humana \cite{freitas2013avaliaccao}.
+						
+						\par A importância de se medir $f_0$ corretamente vem do fato de que, além de carregar boa parte da informação da fala, $f_0$ é a base para construção das outras frequências, pois essas são múltiplas de $f_0$.
+						
+						\subsubsection{Formantes}
+						
+						\par \textit{O primeiro formante ($f_1$), relaciona-se à  amplificação  sonora  na  cavidade  oral  posterior  e  à  posição  da  língua  no  plano  vertical;  o segundo  formante  ($f_2$)  à  cavidade  oral  anterior  e  à  posição  da  língua  no  plano  horizontal.  O terceiro  formante  ($f_3$)  relaciona-se  às  cavidades  à  frente  e  atrás  do  ápice  da  língua;  o  quarto formante  ($f_4$),  ao  formato  da  laringe  e  da  faringe  na  mesma  altura} \cite{valencca2014analise}.
 
 				\subsubsection{Duvidas}
 					\par Como o tamanho da janela funciona em wavelet? Pensei que o tamanho da janela era dado pela função de escalamento da wavelet.
@@ -490,8 +512,39 @@
 					
 					\par O número de sobre posições no cálculo de R é de valor ou de intervalo?
 
+		\newpage
 		\section{Trabalhos correlatos}
-			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de áudio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
+			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de á\textsl{}udio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
+			
+			\par Em \cite{DiqunYan2019} é mostrado um método para diferenciar a voz de um locutor verdadeiro da voz gerada por sistemas usando sintetizadores baseados no \textit{modelo oculto de Markov} (HMM). SAS\cite{SAS2019} foi a escolha de base de dados. Este método usa coeficientes de características logarítmicos extraídos de wavelets que são apresentados a um classificador SVM. Os resultados obtidos tiverem, em média, mais de 99\% de acurácia.
+			
+			\par Usando uma decomposição por espalhamento baseada em wavelets e convertendo o resultado em coeficientes cepstrais (SCCs) o artigo \cite{7802552} cria um vetor de características que é avaliado por modelos de mistura Gaussiana (GMM). SAS e ASVspoof 2015 \cite{ASVspoof2015} foram as bases de dados escolhidas para testes. Em relação aos resultados foram usadas a \textit{taxa de falsos verdadeiros} (FAR) que representa a taxa de ocorrências falsas classificadas como verdadeiras e a \textit{taxa de falsos falsos} (FRR) que é a taxa de ocorrências verdadeiras classificadas como falsas. Aos pontos em que FAR é igual a FRR chamou-se de pontos de taxa de erros iguais e a \textit{taxa de erros iguais} (ERR) é o valor de $\dfrac{FAR}{FRR}$. Considerando isso nos experimentos foram obtidas as seguintes ERRs:
+			\begin{itemize}
+				\item ERR de amostras reconhecidas: 0,02.
+				\item ERR de amostras não reconhecidas: 0,33.
+				\item ERR geral: 0,18.
+			\end{itemize}
+
+			\par Já em \cite{alluri2019replay} os autores usam o \textit{"Zero time windowing"} ou janelamento de tempo zero (ZTW), conceito esse que deve ser melhor entendido durante a confecção da dissertação, para, em conjunto com a análise cepstral do espectro gerado, fazer a análise do sinal. Os experimentos foram feitos usando-se a base ASVspoof 2017\cite{ASVspoof2017} com um classificador GMM, a taxa geral de ERR dos experimentos foi de 0,1475.
+			
+			\par Em \cite{8725688} é citado que existe uma diferença entre as propriedades espectrais da voz original e da voz gravada. No escrito são usados coeficientes cepstrais sobre os quais são aplicados uma média e uma normaliza de variância para diminuir o impacto dos ruídos na classificação. Uma GMM foi usada como classificador. A base de dados usada é a ASVspoof 2017. Quanto aos resultados se obteve uma EER geral menor que 0,1.
+		
+			\par A proposta de \cite{Hanilci2018} é usar sinais residuais de predição linear, para, juntamente com coeficientes cepstrais criar características que serão apresentas a um classificador GMM. Novamente, a base de dados usada foi a ASVspoof 2015 e os resultados são os apresentados abaixo:
+			\begin{itemize}
+				\item ERR de amostras reconhecidas: 0,017.
+				\item ERR de amostras não reconhecidas: 10,482.
+				\item ERR geral: 5,249.
+			\end{itemize}
+
+			\par Para detecção de voice spoofing  \cite{ISI:000473343500086} importa do campo de processamento de imagens o conceito de textura, para o processamento de voz esse conceito é chamado de "texturas de voz". Padrões binários locais (LBP) e seu respectivo histograma são usados para a construção do vetor de características que será avaliado por uma SVM. A base de dados usada para testes foi a ASVspoof 2015. A taxa máxima de acurácia conseguida foi de 0,7167.
+			
+			\par \cite{TODISCO2017516}
+			
+			
+			\par his paper proposes a novel approach for replayattack detection, using reverberation and channel informationfrom non-voiced (silence and unvoiced) segments of utterances.The non-voiced segments are determined using a voice activitydetector. These non-voiced segments are likely to contain rever-beration and channel information. Multiple feature representa-tions are used to capture the remnant vocal tract information innon-voiced segments. Gaussian mixture models are used to buildthree different baseline systems corresponding to that of threedifferent features. Voting is performed to decide whether a giveninput utterance is replayed or not. Equal error rate (EER) iscomputed using the likelihood ratio of the genuine and spoofedmodel from the best baseline system. Evaluation on the ASV-Spoof-2017 challenge dataset shows that the proposed approachoutperforms the best baseline system with a relative improvementof 37\% in terms of EER - CQCC-based baseline - Constant Q Cepstral Coefficients 
+			
+
+
 		\end{myenv}
 
 	\chapter{Cronograma para conclusão do curso de mestrado}
