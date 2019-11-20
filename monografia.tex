@@ -518,31 +518,35 @@
 			
 			\par Em \cite{DiqunYan2019} é mostrado um método para diferenciar a voz de um locutor verdadeiro da voz gerada por sistemas usando sintetizadores baseados no \textit{modelo oculto de Markov} (HMM). SAS\cite{SAS2019} foi a escolha de base de dados. Este método usa coeficientes de características logarítmicos extraídos de wavelets que são apresentados a um classificador SVM. Os resultados obtidos tiverem, em média, mais de 99\% de acurácia.
 			
-			\par Usando uma decomposição por espalhamento baseada em wavelets e convertendo o resultado em coeficientes cepstrais (SCCs) o artigo \cite{7802552} cria um vetor de características que é avaliado por modelos de mistura Gaussiana (GMM). SAS e ASVspoof 2015 \cite{ASVspoof2015} foram as bases de dados escolhidas para testes. Em relação aos resultados foram usadas a \textit{taxa de falsos verdadeiros} (FAR) que representa a taxa de ocorrências falsas classificadas como verdadeiras e a \textit{taxa de falsos falsos} (FRR) que é a taxa de ocorrências verdadeiras classificadas como falsas. Aos pontos em que FAR é igual a FRR chamou-se de pontos de taxa de erros iguais e a \textit{taxa de erros iguais} (ERR) é o valor de $\dfrac{FAR}{FRR}$. Considerando isso nos experimentos foram obtidas as seguintes ERRs:
-			\begin{itemize}
-				\item ERR de amostras reconhecidas: 0,02.
-				\item ERR de amostras não reconhecidas: 0,33.
-				\item ERR geral: 0,18.
-			\end{itemize}
+			\par Usando uma decomposição por espalhamento baseada em wavelets e convertendo o resultado em coeficientes cepstrais (SCCs) o artigo \cite{7802552} cria um vetor de características que é avaliado por modelos de mistura Gaussiana (GMM). SAS e ASVspoof 2015 \cite{ASVspoof2015} foram as bases de dados escolhidas para testes. Em relação aos resultados foram usadas a \textit{taxa de falsos verdadeiros} (FAR) que representa a taxa de ocorrências falsas classificadas como verdadeiras e a \textit{taxa de falsos falsos} (FRR) que é a taxa de ocorrências verdadeiras classificadas como falsas. Aos pontos em que FAR é igual a FRR chamou-se de pontos de taxa de erros iguais e a \textit{taxa de erros iguais} (ERR) é o valor de $\dfrac{FAR}{FRR}$. Considerando isso nos experimentos foi obtida uma ERR geral de 0,18.
 
 			\par Já em \cite{alluri2019replay} os autores usam o \textit{"Zero time windowing"} ou janelamento de tempo zero (ZTW), conceito esse que deve ser melhor entendido durante a confecção da dissertação, para, em conjunto com a análise cepstral do espectro gerado, fazer a análise do sinal. Os experimentos foram feitos usando-se a base ASVspoof 2017\cite{ASVspoof2017} com um classificador GMM, a taxa geral de ERR dos experimentos foi de 0,1475.
 			
 			\par Em \cite{8725688} é citado que existe uma diferença entre as propriedades espectrais da voz original e da voz gravada. No escrito são usados coeficientes cepstrais sobre os quais são aplicados uma média e uma normaliza de variância para diminuir o impacto dos ruídos na classificação. Uma GMM foi usada como classificador. A base de dados usada é a ASVspoof 2017. Quanto aos resultados se obteve uma EER geral menor que 0,1.
 		
-			\par A proposta de \cite{Hanilci2018} é usar sinais residuais de predição linear, para, juntamente com coeficientes cepstrais criar características que serão apresentas a um classificador GMM. Novamente, a base de dados usada foi a ASVspoof 2015 e os resultados são os apresentados abaixo:
-			\begin{itemize}
-				\item ERR de amostras reconhecidas: 0,017.
-				\item ERR de amostras não reconhecidas: 10,482.
-				\item ERR geral: 5,249.
-			\end{itemize}
+			\par A proposta de \cite{Hanilci2018} é usar sinais residuais de predição linear, para, juntamente com coeficientes cepstrais criar características que serão apresentas a um classificador GMM. Novamente, a base de dados usada foi a ASVspoof 2015 e os resultados em ERR geral foram de 5,249.
 
 			\par Para detecção de voice spoofing  \cite{ISI:000473343500086} importa do campo de processamento de imagens o conceito de textura, para o processamento de voz esse conceito é chamado de "texturas de voz". Padrões binários locais (LBP) e seu respectivo histograma são usados para a construção do vetor de características que será avaliado por uma SVM. A base de dados usada para testes foi a ASVspoof 2015. A taxa máxima de acurácia conseguida foi de 0,7167.
 			
-			\par \cite{TODISCO2017516}
+			\par Uma abordagem que combina análise de sinal de fala usando a \textit{transformada de constante Q} (CQT) com o processamento cepstral é mostrada em \cite{TODISCO2017516}, essa técnica resulta no que se chama \textit{coeficientes cepstrais de constante Q}(CQCCs), segundo o artigo, a vantagem destes coeficientes é a resolução espectro temporal variável. As base de dados usadas foram a RedDots \cite{redDots}, ASVspoof 2015 e AVSpoof. Foram usados thês classificadores:
+			\begin{itemize}
+				\item DA-IICT: Uma fusão de dois classificadores GMM, sendo que um deles usa \textit{coeficientes cepstrais de frequência MEL}(MFCC) e o outro usa características CFCC-IF \cite{Patel2015}.
+				\item STC \cite{7472724}.
+				\item SJTU \cite{korshunov2016overview}.
+			\end{itemize}			
+			Na seção de experimentos são feitos testes para cada uma das bases com os seguintes resultados: ASVspoof 2015 $\rightarrow$ EER geral de 0.026; AVspoof $\rightarrow$ EER geral de 0; RedDots $\rightarrow$ EER geral de 0,185.
+
+			\par O artigo \cite{ISI:000490497200068} propõe uma aproximação usando reverberação e as partes não vozeadas da fala, três GMMs foram definidos para a classificação, esses classificadores votam se uma ocorrência é ou não verdadeira, ganhado sempre a classificação que obtiver mais votos. A base de dado utilizada foi a ASVSpoof 2017. O sistema de avaliação de desempenho escolhido, novamente, foi o ERR e esta alcançou um valor de 2,99.
 			
+			\par A principal ideia de \cite{ISI:000465363900136} é capturar a amplitude instantânea vinda de flutuações instantâneas de energia. Segundo o artigo as modulações de amplitude são mais suscetíveis ao ruído inserido no sinal original por uma fonte reprodutora. O estudo usa a base de dados ASVSpoof 2017 e GMM como classificador. Os resultados apresentados chegaram a uma EER de 0.0019.
+
+			\par No trabalho \cite{ISI:000465363900139} foram usadas as diferenças entre bandas de frequências específicas para diferenciar um sinal legítimo de um usado em ataques de falsificação. Neste trabalho é proposta a \textit{predição linear em domínio de frequência}(FDLP) juntamente com GMMs para classificação dos dados presentes na base ASVspoof  2017. Os resultados apresentados chegaram a uma EER de 0.0803.
 			
-			\par his paper proposes a novel approach for replayattack detection, using reverberation and channel informationfrom non-voiced (silence and unvoiced) segments of utterances.The non-voiced segments are determined using a voice activitydetector. These non-voiced segments are likely to contain rever-beration and channel information. Multiple feature representa-tions are used to capture the remnant vocal tract information innon-voiced segments. Gaussian mixture models are used to buildthree different baseline systems corresponding to that of threedifferent features. Voting is performed to decide whether a giveninput utterance is replayed or not. Equal error rate (EER) iscomputed using the likelihood ratio of the genuine and spoofedmodel from the best baseline system. Evaluation on the ASV-Spoof-2017 challenge dataset shows that the proposed approachoutperforms the best baseline system with a relative improvementof 37\% in terms of EER - CQCC-based baseline - Constant Q Cepstral Coefficients 
+			\par Em \cite{Suthokumar2018} se propõe duas novas características que visam interpretar as componentes estáticas e dinâmicas do sinal, essas características complementam as características de tempo restrito no espectro. São elas a \textit{"modulation  spectral  centroid  frequency"} e a \textit{long term spectral average}. O sistema usa como classificador um GMM juntamente com a base dados ASVSpoof 2017. Os resultados chegaram a um valor de EER de 0,0654.
 			
+			\par Considerando o envelopamento das amplitudes e das frequências instantâneas em cada banda estreita filtrada,  \cite{ISI:000458728700054} discute como diferenciar um sinal legítimo de um falso. A base de dados usada foi a  ASVSpoof 2015. Um GMM foi usado como classificador e, em relação ao desempenho, o método chegou a ter um EER de 0,045.
+
+			\par Neste trabalho \cite{ISI:000392503100008} é proposto o uso do \textit{gammatone frequency cepstral coefficients}(MGFCC). O gammatone é o produto de uma distribuição gamma com um sinal senoide e é usado na construção de filtros auditivos que, neste caso, são usados para extrair características do sinal de voz. A base de dados usada foi a ASVspoof 2015. O classificador usado foi um GMM e o EER chegou a 0,02556.
 
 
 		\end{myenv}
@@ -551,6 +555,13 @@
 		\begin{myenv}{1.5}
 			\par Preparação da base dados e cronograma
 		\end{myenv}
+	
+	\chapter{Notas}
+	\begin{itemize}
+		\item Aprofundar EER
+		\item Aprofundar GMM
+		\item Aprofundar Cepstral
+	\end{itemize}
 
 	\bibliography{bibliography.bib}
 	\bibliographystyle{alpha}
