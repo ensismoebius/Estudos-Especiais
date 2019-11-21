@@ -6,6 +6,11 @@
 % Enables code listing
 \usepackage{listings}
 %--------------------------------------
+
+\usepackage{xcolor}
+
+%--------------------------------------
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
@@ -143,15 +148,15 @@
 	\end{center}
 
 	\fontsize{14}{\baselineskip} \selectfont
-	Prof. Dr. Rodrigo Capobianco Guido \\ 
+	Professor Dr. Rodrigo Capobianco Guido \\ 
 	UNESP - Campus de São José do Rio Preto \\
 	Co-Orientador \\\\
 	
-	Prof Dr xxxxxxxx \\ 
+	Professora Dr. Renata Spolon Lobato \\ 
 	UNESP - Campus de São José do Rio Preto \\\\
 	
-	Prof Dr xxxxx \\
-	xxxxxxxx \\
+	Professor Dr. Aleardo Manacero Júnior \\
+	UNESP - Campus de São José do Rio Preto \\\\
 	\vspace{3.0cm}
 
 	\begin{center}
@@ -178,7 +183,18 @@
 		\fontsize{12}{\baselineskip} \selectfont \onehalfspacing
 		\par \null
 		\par \null
-		Este documento constitui uma monografia da disciplina de estudos especiais contendo levantamento bibliográfico dos estudos já realizados.
+		\par Este documento constitui a monografia produzida como resultado dos estudos especiais realizados pelo autor visando promover um levantamento bibliográfico inicial do tema de sua dissertação de mestrado. Foram inclusas as descrições essenciais de 14 trabalhos científicos na área de \textit{voice spoofing detection}, acrescidos ainda, das direções que caracterizam o tema do trabalho em questão visando a monografia de qualificação.
+		
+		\par No capítulo 1 é feita uma breve introdução.
+		
+		\par No capítulo 2 são feitas as revisões de conceitos e bibliográficas.
+		
+		\par Na seção 2.1 são revisados os conceitos de engenharia paraconsistente de características, filtros digitais \textit{wavelets}, amostragem,  quantização e o formato do arquivo \textit{wave} e caracterização dos processos de produção da voz humana.
+		
+		\par Na seção 2.2 é feita uma revisão bibliográfica que inclui uma seleção de trabalhos científicos dos últimos cinco anos relacionados ao tema da dissertação. 
+		
+		\par No capítulo 3 é mostrado um cronograma com a previsão da realização dos trabalhos.
+		
 	\end{myenv}
 
 	%% Lista de figuras (gerada automaticamente)
@@ -211,16 +227,16 @@
 	\chapter{Introdução}
 		\begin{myenv}{1.5}
 			\setcounter{page}{12}
-			Os sistemas de reconhecimento biométrico podem se basear em diversos aspectos do usuário neste caso será discutida, especificamente, a voz e sua respectiva tentativa de falseamento usando o processo de \textit{voice spoofing} e como se pretende reconhecer tal ataque.
-			Um sistema de reconhecimento \textbf{idealmente} não deve se deixar enganar por, como exemplo, uma voz gravada.\\
-			Neste documento será apresentada uma revisão de conceitos sobre os seguintes tópicos:
+			\par Os sistemas de autenticação de usuário por voz e o processo de falseamento usando \textit{voice spoofing} é o tema de estudo que se pretende explorar. Um sistema de reconhecimento \textbf{idealmente} não deve se deixar enganar por, como exemplo, uma voz gravada, neste documento será apresentada uma revisão de conceitos que visa preparar as bases para a construção de métodos que reconheçam esse ataque.
+			
+			\par No capítulo 2 se realizará uma revisão dos seguintes conceitos:
 			\begin{itemize}
 				\item Engenharia paraconsistente.
 				\item Filtros digitais usando wavelets.
 				\item Caracterização dos processos de produção da voz humana.
 				\item Amostragem, quantização, entre outros.
 			\end{itemize}
-			Em seguida apresentar-se-á uma revisão bibliográfica finalizando com o cronograma previsto.
+			\par Em seguida apresentar-se-á uma revisão bibliográfica finalizando com o cronograma previsto.
 		\end{myenv}
 
 	\chapter{Revisão de Bibliográfica}
@@ -232,7 +248,7 @@
 						
 						\par O método de cálculo do plano paraconsistente é uma ferramenta que pode ser usada para responder essa questão.
 						
-						\par O processo inicia-se após a aquisição dos vetores de características para cada classe ($C_n$) onde $n$ é o índice de cada uma delas. Se o número de classes presentes for, por exemplo, \textbf{quatro} então estas poderão ser representadas por $C_1, C_2, C_3, C_4$.
+						\par O processo inicia-se após a aquisição dos vetores de características para cada classe ($C_n$) onde $n$ é o índice de cada uma delas. Se o número de classes presentes for, por exemplo, quatro então estas poderão ser representadas por $C_1, C_2, C_3, C_4$.
 						\par Em seguida será necessário o cálculo de duas grandezas:
 						
 						\begin{itemize}
@@ -267,7 +283,7 @@
 						\begin{equation}
 								F=N.(N-1).X.T
 						\end{equation}
-						Onde:
+						onde:
 						\begin{itemize}
 							\item N é a quantidades de classes.
 							\item X é quantidade de vetores de características por classe.
@@ -301,13 +317,10 @@
 							G_1=\alpha-\beta 
 						\end{equation}
 						\begin{equation}
-							G_2=\alpha+\beta-1
+							G_2=\alpha+\beta-1 \qquad,
 						\end{equation}
-					Onde:
-					\begin{itemize}
-						\item $-1 \leqslant G_1$
-						\item $1 \geqslant G_2$
-					\end{itemize}
+					onde: $-1 \leqslant G_1$ e  $1 \geqslant G_2$.
+
 					\par Os valores de $G_1$ e $G_2$ em conjunto definem os graus entre verdade e falsidade, ou seja, $G_1=-1$ e $G_1=1$ respectivamente e também os graus entre indefinição e ambiguidade, ou seja, $G_2=-1$ e $G_2=1$ respectivamente.
 					\par O plano paraconsistente para fins de visualização e maior rapidez na avaliação dos resultados como ilustrado na figura \ref{fig:paraconsistentplane} tem quatro cantos definidos:
 					\begin{itemize}
@@ -317,32 +330,32 @@
 						\item (0,1) $\rightarrow$ Ambiguidade.
 					\end{itemize}
 					\par É importante perceber que na figura \ref{fig:paraconsistentplane} existe um pequeno círculo, este indica onde se encontram as classes nos graus explicados da listagem anterior.
-					\par Para se ter ideia em que área exatamente se encontram as classes avaliadas se deve calcular as distâncias$(D)$ do ponto $P=(G_1,G_2)$ dos limites supracitados. Tal calculo pode ser feito da seguinte forma:
+					\par Para se ter ideia em que área exatamente se encontram as classes avaliadas se deve calcular as distâncias$(D)$ do ponto $P=(G_1,G_2)$ dos limites supracitados. Tal cálculo pode ser feito da seguinte forma:
 
 					\begin{equation}
-						D_{-1,0}=\sqrt{(G_1+1)^2+(G_2)^2}			
+						D_{-1,0}=\sqrt{(G_1+1)^2+(G_2)^2}\qquad,
 					\end{equation}
 					\begin{equation}
-						D_{1,0}=\sqrt{(G_1-1)^2+(G_2)^2}			
+						D_{1,0}=\sqrt{(G_1-1)^2+(G_2)^2}\qquad,
 					\end{equation}
 					\begin{equation}
-						D_{0,-1}=\sqrt{(G_1)^2+(G_2+1)^2}			
+						D_{0,-1}=\sqrt{(G_1)^2+(G_2+1)^2}\qquad,		
 					\end{equation}
 					\begin{equation}
-						D_{0,1}=\sqrt{(G_1)^2+(G_2-1)^2}			
+						D_{0,1}=\sqrt{(G_1)^2+(G_2-1)^2}\qquad,
 					\end{equation}		
-					\newpage
+
 					\begin{figure}[h]
 						\centering
 						\includegraphics[width=0.7\linewidth]{images/paraconsistentPlane.pdf}
-						\caption{O plano paraconsistente}
+						\caption{O plano paraconsistente.}
 						\label{fig:paraconsistentplane}
 					\end{figure}
 
-				\subsection{Filtros digitais usando wavelets}
-					\par Filtros digitais baseados na transformada Wavelet vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. Wavelets contam com variadas função filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
-					\par As wavelets proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
-					\par No tocante a sua aplicação no problema a ser tratado a abordagem wavelet será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
+				\subsection{Filtros digitais  wavelets}
+					\par Filtros digitais  \textit{wavelet} vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. \textit{Wavelets} contam com variadas funções filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
+					\par As \textit{wavelets} proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
+					\par No tocante a sua aplicação no problema a ser tratado a abordagem \textit{wavelet} será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
 					
 					\subsubsection{Mother wavelets}
 					Os filtros digitais baseados em wavelets são construídos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura \ref{fig:wavelets} mostra algumas das principais \textit{mother wavelets}.
@@ -353,19 +366,7 @@
 						\label{fig:wavelets}
 					\end{figure}
 					
-					No contexto dos filtros digitais baseados em wavelets o tamanho da janela recebe o nome de \textbf{suporte}, quando este é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}. As \textbf{mother wavelets}, para serem classificadas como tal, \textbf{necessariamente} precisam ter suporte compacto além de \textbf{integral igual a zero}.
-					\begin{equation}
-						\begin{aligned}
-							&\int_{\mathbb{R}} \frac{|\Psi(w)^2|}{|w|} . dw < \infty\\
-							&\int_{\mathbb{R}} \psi(w) . dw = 0
-						\end{aligned}
-					\end{equation}
-					Onde:
-					\begin{itemize}
-						\item $w$ é uma variável independente tal que $w \in \mathbb{R}$
-						\item $\psi(w)$ é a função candidata a wavelet.
-						\item $\Psi(w)$ é a transformada continua de Fourier da função $\psi(w)$.
-					\end{itemize}
+					No contexto dos filtros digitais baseados em \textit{wavelets} o tamanho da janela recebe o nome de \textbf{suporte}, quando este é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}. As \textbf{mother wavelets}, para serem classificadas como tal, \textbf{necessariamente} precisam ter suporte compacto além de \textbf{integral igual a zero}.
 				
 					\par Devido aos seus diversos formatos cada \textit{mother wavelet} tem propriedades distintas, assim sendo, dependendo do objetivo da filtragem se pode escolher uma ou outra.
 					
@@ -385,7 +386,7 @@
 						\label{fig:nomaximallyflat}
 					\end{figure}
 				
-					\par Além da resposta em frequência a aplicação de um filtro digital baseado em wavelets também pode gerar o que se chama de \textbf{resposta em fase}, esse deslocamento pode ser \textbf{linear}, \textbf{quase linear} ou \textbf{não linear}. 
+					\par Além da resposta em frequência a aplicação de um filtro digital baseado em \textit{wavelets} também pode gerar o que se chama de \textbf{resposta em fase}, esse deslocamento pode ser \textbf{linear}, \textbf{quase linear} ou \textbf{não linear}. 
 					
 					\begin{itemize}
 						\item Na resposta em fase \textbf{linear} há o mesmo deslocamento de fase para todos os componentes do sinal.
@@ -415,9 +416,9 @@
 					\end{table}
 				
 				\subsubsection{O algoritmo de Malat}
-				\par O algoritmo de Malat torna aplicação das wavelets no sinal em uma simples multiplicação de matrizes, o sinal que deve ser transformado se torna uma matriz linear vertical já os filtros passa-baixa e passa-alta tornam-se, nessa ordem, linhas de uma matriz quadrada que será completada segundo regras que serão mostradas mais adiante.
+				\par O algoritmo de Malat torna aplicação das \textit{wavelets} no sinal em uma simples multiplicação de matrizes, o sinal que deve ser transformado se torna uma matriz linear vertical já os filtros passa-baixa e passa-alta tornam-se, nessa ordem, linhas de uma matriz quadrada que será completada segundo regras que serão mostradas mais adiante.
 				\par É importante que essa matriz quadrada tenha de aresta a mesma quantidade de itens que o nosso sinal, ou seja, se o sinal tem quatro elementos então a matriz de filtros deve ser uma de 4x4.
-				\par Uma coisa interessante a se notar é que, para que seja possível a transformada wavelet, basta ter disponível o filtro passa-baixa construído a partir da \textit{mother wavelet} já que o filtro passa-alta pode ser construído a partir da ortogonalidade do primeiro.
+				\par Algo interessante a se notar é que, para que seja possível a transformada wavelet, basta ter disponível o filtro passa-baixa construído a partir da \textit{mother wavelet} já que o filtro passa-alta pode ser construído a partir da ortogonalidade do primeiro.
 				\par A título de exemplo considere:
 				\par O filtro passa baixa baseado na wavelet Haar:
 				$h[\cdot] = [\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}]$.
@@ -480,8 +481,8 @@
 				
 					\begin{figure}[h]
 						\centering
-						\includegraphics[width=0.7\linewidth]{images/wavePcmStructure}
-						\caption{Estrutura do arquivo Wave com PCM}
+						\includegraphics[width=0.45\linewidth, angle=-90]{images/wavePcmStructure.pdf}
+						\caption{Estrutura do arquivo Wave}
 						\label{fig:wavePcmStructure}
 					\end{figure}
 					
@@ -489,6 +490,10 @@
 				\subsection{Caracterização dos processos de produção da voz humana}
 					\par A fala possui três grandes áreas de estudo: fisiológica (ou fonética articulatória),  acústica  (ou fonética acústica)  e  perceptual  (ou  comumente  chamada percepção  da  fala) \cite{kremer2014eficiencia}.
 					\par Neste trabalho o foco será apenas na acústica, já que não serão analisados aspectos da fisiologia relacionada a voz e sim o sinal sonoro propriamente dito.
+					
+					\subsubsection{Vozeada versus não-vozeada}
+
+					\par Quando da análise de voz se pode levar em consideração as partes vozeadas e/ou não-vozeadas do sinal. As partes vozeadas são aquelas produzidas com ajuda das cordas vocais, as partes não-vozeadas não tem participação desta estrutura.
 					
 					\subsubsection{Frequência fundamental da voz}
 						\par Também conhecida como $f_0$ é o componente periódico resultante da vibração das pregas vocais, em termos de percepção se pode interpretar $f_0$ como o tom da voz (pitch) \cite{kremer2014eficiencia}.
@@ -506,13 +511,11 @@
 						
 						\par \textit{O primeiro formante ($f_1$), relaciona-se à  amplificação  sonora  na  cavidade  oral  posterior  e  à  posição  da  língua  no  plano  vertical;  o segundo  formante  ($f_2$)  à  cavidade  oral  anterior  e  à  posição  da  língua  no  plano  horizontal.  O terceiro  formante  ($f_3$)  relaciona-se  às  cavidades  à  frente  e  atrás  do  ápice  da  língua;  o  quarto formante  ($f_4$),  ao  formato  da  laringe  e  da  faringe  na  mesma  altura} \cite{valencca2014analise}.
 
-				\subsubsection{Duvidas}
-					\par Como o tamanho da janela funciona em wavelet? Pensei que o tamanho da janela era dado pela função de escalamento da wavelet.
-					\par Como eu defino o tamanho da janela no algoritmo de Malat?
-					
-					\par O número de sobre posições no cálculo de R é de valor ou de intervalo?
+				%\subsubsection{Duvidas}
+				%	\par Como o tamanho da janela funciona em wavelet? Pensei que o tamanho da janela era dado pela função de escalamento da wavelet.
+				%	\par Como eu defino o tamanho da janela no algoritmo de Malat?	
+				%	\par O número de sobre posições no cálculo de R é de valor ou de intervalo?
 
-		\newpage
 		\section{Trabalhos correlatos}
 			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de á\textsl{}udio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
 			
@@ -548,21 +551,51 @@
 
 			\par Neste trabalho \cite{ISI:000392503100008} é proposto o uso do \textit{gammatone frequency cepstral coefficients}(MGFCC). O gammatone é o produto de uma distribuição gamma com um sinal senoide e é usado na construção de filtros auditivos que, neste caso, são usados para extrair características do sinal de voz. A base de dados usada foi a ASVspoof 2015. O classificador usado foi um GMM e o EER chegou a 0,02556.
 
+			\subsection{Contextualização}
+			\par No trabalho proposto para dissertação de mestrado do autor a intenção é encontrar um conjunto de características que demonstrem ser as mais disjuntas possíveis, afim de melhorar o desempenho de classificadores em ataques de \textit{voice spoofing}. Caraterísticas essas com base na transformada \textit{wavelet}, devido a sua boa resolução em relação às dimensões de tempo e frequência. Essas características serão avaliadas usando a análise paraconsistente de acordo com o trabalho \cite{8588433} recentemente publicado.
 
 		\end{myenv}
 
 	\chapter{Cronograma para conclusão do curso de mestrado}
 		\begin{myenv}{1.5}
-			\par Preparação da base dados e cronograma
-		\end{myenv}
-	
-	\chapter{Notas}
-	\begin{itemize}
-		\item Aprofundar EER
-		\item Aprofundar GMM
-		\item Aprofundar Cepstral
-	\end{itemize}
-
+			\par Até a presente data foram realizados os primeiros levantamentos para construção da base de dados com as vozes que serão objeto de pesquisa, essa base conta com um total de 21 gravações originais e outras 21 de \textit{playback} gravadas de pessoas com variados gêneros e idades contando de zero a nove em inglês. A ideia é que essa base possa crescer e abarcar boa tarde dos tipos de voz existentes na região. Também foram estudados e implementados filtros passa-baixa e passa-alta além de testadas metodologias de criação de vetores de características usando os intervalos pré-definidos MEL e BARK. 
+			\par Foi criada e melhorada uma biblioteca, baseada em códigos anteriormente já escritos, que facilita a manipulação dos arquivos de áudio, outra de análise paraconsistente e uma documentação extra constando boa parte das instruções recebidas do orientador.
+			\par Quanto aos trabalhos futuros a tabela \ref{Cronograma} mostra o cronograma previsto.
+			
+			\newcommand\ytl[2]{
+				\parbox[b]{10em}{
+					\hfill{\color{black}\bfseries\sffamily #1}~$\cdots\cdots$~
+				}
+				\makebox[0pt][c]{
+					$\bullet$
+				}\vrule\quad \parbox[c]{4.5cm}{
+				\vspace{7pt}\color{black}\raggedright\sffamily #2.\\[7pt]
+				}\\
+				[-3pt]
+			}
+		
+			\begin{table}
+				\centering
+				\ytl{09/03 -- 31/03}{Início dos trabalhos: Coleta de dados para constituição da base de dados e estudo da base bibliográfica. Escrita da dissertação}
+				\ytl{01/04 -- 15/04}{Coleta de dados para constituição da base de dados e estudo da base bibliográfica. Início dos experimentos. Escrita da dissertação}
+				\ytl{16/04 -- 16/04}{Reunião de validação com o orientador}
+				\ytl{17/04 -- 29/04}{Experimentos e escrita da dissertação}
+				\ytl{30/04 -- 30/04}{Reunião de validação com o orientador}
+				\ytl{01/05 -- 20/05}{Experimentos e escrita da dissertação}
+				\ytl{21/05 -- 28/05}{Reunião de validação com o orientador}
+				\ytl{29/05 -- 10/06}{Experimentos e escrita da dissertação}
+				\ytl{11/06 -- 11/06}{Reunião de validação com o orientador}
+				\ytl{12/06 -- 17/06}{Experimentos e escrita da dissertação}
+				\ytl{18/06 -- 18/06}{Reunião de validação com o orientador}
+				\ytl{19/06 -- 24/06}{Experimentos e escrita da dissertação}
+				\ytl{25/06 -- 25/06}{Reunião de validação com o orientador}
+				\ytl{26/06 -- 01/07}{Experimentos e escrita da dissertação}
+				\ytl{02/07 -- 02/07}{Reunião de validação com o orientador}
+				\ytl{03/07}{Entrega da dissertação}
+				\caption{Cronograma}
+				\label{Cronograma}
+			\end{table}
+	\end{myenv}
 	\bibliography{bibliography.bib}
 	\bibliographystyle{alpha}
 
