@@ -184,15 +184,8 @@
 		\par \null
 		\par \null
 		\par Este documento constitui a monografia produzida como resultado dos estudos especiais realizados pelo autor visando promover um levantamento bibliográfico inicial do tema de sua dissertação de mestrado. Foram inclusas as descrições essenciais de 14 trabalhos científicos na área de \textit{voice spoofing detection}, acrescidos ainda, das direções que caracterizam o tema do trabalho em questão visando a monografia de qualificação.
-
-		%% Criar um texto mais fluido sem itens
-		\par No capítulo 1 é realizada uma breve introdução.
-		\par No capítulo 2 são realizadas as revisões de conceitos e bibliográficas.
-		\par Na seção 2.1 são revisados os conceitos de engenharia paraconsistente de características, filtros digitais \textit{wavelets}, amostragem,  quantização e o formato do arquivo \textit{wave} e caracterização dos processos de produção da voz humana.
 		
-		\par Na seção 2.2 é realizada uma revisão bibliográfica que inclui uma seleção de trabalhos científicos dos últimos cinco anos relacionados ao tema da dissertação. 
-		
-		\par No capítulo 3 é mostrado um cronograma com a previsão da realização dos trabalhos.
+		\par No capítulo 1 é feita uma breve introdução. Iniciando as revisões de conceitos apresenta-se a engenharia paraconsistente de características, filtros digitais \textit{wavelets}, amostragem,  quantização e o formato do arquivo \textit{wave} e caracterização dos processos de produção da voz humana no capítulo 2 seção 1, a seguir, na seção 2 deste mesmo capítulo apresenta-se a revisão bibliográfica inicial. Finalmente no capítulo 3 é mostrado um cronograma com os trabalhos já realizados e uma previsão da realização dos próximos.
 		
 	\end{myenv}
 
@@ -345,24 +338,21 @@
 
 					\begin{figure}[h]
 						\centering
-						\includegraphics[width=0.7\linewidth]{images/paraconsistentPlane.pdf}
+						\includegraphics[width=0.69\linewidth]{images/paraconsistentPlane.pdf}
 						\caption{O plano paraconsistente.}
 						\label{fig:paraconsistentplane}
 					\end{figure}
 
-				\subsection{Filtros digitais  wavelets}
-					\par Filtros digitais  \textit{wavelet} vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. \textit{Wavelets} contam com variadas funções filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
+				\subsection{Filtros digitais wavelets}
+					\par Filtros digitais \textit{wavelet} vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. \textit{Wavelets} contam com variadas funções filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
+					
 					\par As \textit{wavelets} proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
-					\par No tocante a sua aplicação no problema a ser tratado a abordagem \textit{wavelet} será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
 					
-					\subsubsection{Mother wavelets}
-					Os filtros digitais baseados em wavelets são construídos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura mostra algumas das principais \textit{mother wavelets}.
-					
-					No contexto dos filtros digitais baseados em \textit{wavelets} o tamanho da janela recebe o nome de \textbf{suporte}, quando este é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}. As \textbf{mother wavelets}, para serem classificadas como tal, \textbf{necessariamente} precisam ter suporte compacto além de \textbf{integral igual a zero}.
+					\par É importante observar que, quando se trata de transformada \textit{wavelet} seis elementos estão presentes: dois filtros de análise, dois filtros de síntese e as funções ortogonais \textit{scaling} e \textit{wavelet}. No tocante a sua aplicação só a transformada direta, e não a inversa, será usada na construção dos vetores de características então os filtros de síntese, a função \textit{scaling} e a função \textit{wavelet} não serão elementos abordados aqui, pois, esses só interessariam caso houvesse a necessidade da transformada inversa. A abordagem usada será baseada nos filtros de análise digitais que proporcionarão a decomposição do sinal com o uso de filtros passa-baixa e passa-alta estritamente no domínio discreto.
+		
+					\par No contexto dos filtros digitais baseados em \textit{wavelets} o tamanho da janela recebe o nome de \textbf{suporte}. Janelas definem o tamanho do filtro que será aplicado ao sinal quando esse é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}.
 				
-					\par Devido aos seus diversos formatos cada \textit{mother wavelet} tem propriedades distintas, assim sendo, dependendo do objetivo da filtragem se pode escolher uma ou outra.
-					
-					\par Se diz que uma \textit{mother wavelet} tem boa \textbf{resposta em frequência} quando da aplicação da mesma na filtragem das frequências não são causadas muitas pertubações indesejadas ao sinal, as wavelets de Daubechies se destacam neste quesito por serem \textit{maximamente planas} (Maximally-flat) nos platôs de resposta em frequência como indicado na figura \ref{fig:daubechies}.
+					\par Se diz que uma \textit{wavelet} tem boa \textbf{resposta em frequência} quando, na aplicação da mesma na filtragem das frequências não são causadas muitas pertubações indesejadas ao sinal, as wavelets de Daubechies se destacam neste quesito por serem \textit{maximamente planas} (Maximally-flat) nos platôs de resposta em frequência como indicado na figura \ref{fig:daubechies}.
 
 					\begin{figure}[h]
 						\centering
@@ -378,7 +368,7 @@
 						\label{fig:nomaximallyflat}
 					\end{figure}
 				
-					\par Além da resposta em frequência a aplicação de um filtro digital baseado em \textit{wavelets} também pode gerar o que se chama de \textbf{resposta em fase}, esse deslocamento pode ser \textbf{linear}, \textbf{quase linear} ou \textbf{não linear}. 
+					\par Além da resposta em frequência a aplicação de um filtro digital \textit{wavelets} também pode gerar o que se chama de \textbf{resposta em fase}, esse deslocamento pode ser \textbf{linear}, \textbf{quase linear} ou \textbf{não linear}. 
 					
 					\begin{itemize}
 						\item Na resposta em fase \textbf{linear} há o mesmo deslocamento de fase para todos os componentes do sinal.
@@ -413,12 +403,12 @@
 				\par Algo interessante a se notar é que, para que seja possível a transformada wavelet, basta ter disponível o filtro passa-baixa construído a partir da \textit{mother wavelet} já que o filtro passa-alta pode ser construído a partir da ortogonalidade do primeiro.
 				\par A título de exemplo considere:
 				\par O filtro passa baixa baseado na wavelet Haar:
-				$h[\cdot] = [\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}]$.
+				$h[\cdot] = [\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}]\qquad,$
 				
 				\par E seu respectivo valor ortogonal:
-				$g[\cdot] = [\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}]$.
+				$g[\cdot] = [\frac{1}{\sqrt{2}}, \frac{-1}{\sqrt{2}}]\qquad,$
 				
-				\par Considere também o seguinte sinal:	$sinal = [1,2,3,4]$.
+				\par Considere também o seguinte sinal:	$sinal = [1,2,3,4]\qquad.$
 
 				\par Se o tamanho do sinal a ser tratado é quatro, ou seja, o sinal tem quatro pulsos, e se pretende-se aplicar o filtro Haar, a seguinte matriz é construída:
 				\begin{equation}
@@ -463,7 +453,7 @@
 					\frac{7}{\sqrt{2}},
 					\frac{-1}{\sqrt{2}},
 					\frac{-1}{\sqrt{2}}
-					\Big]
+					\Big]\qquad.
 				\end{equation}
 			
 				\subsection{Amostragem, quantização e o formato do arquivo Wave}
@@ -485,7 +475,7 @@
 					
 					\subsubsection{Vozeada versus não-vozeada}
 
-					\par Quando da análise de voz se pode levar em consideração as partes vozeadas e/ou não-vozeadas do sinal. As partes vozeadas são aquelas produzidas com ajuda das cordas vocais, as partes não-vozeadas não tem participação desta estrutura.
+					\par Quando da análise de voz se pode levar em consideração as partes vozeadas e/ou não-vozeadas do sinal. As partes vozeadas são aquelas produzidas com ajuda das pregas vocais, as partes não-vozeadas não tem participação desta estrutura.
 					
 					\subsubsection{Frequência fundamental da voz}
 						\par Também conhecida como $f_0$ é o componente periódico resultante da vibração das pregas vocais, em termos de percepção se pode interpretar $f_0$ como o tom da voz (pitch) \cite{kremer2014eficiencia}.
