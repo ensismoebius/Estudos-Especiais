@@ -152,7 +152,7 @@
 	UNESP - Campus de São José do Rio Preto \\
 	Co-Orientador \\\\
 	
-	Professora Dr. Renata Spolon Lobato \\ 
+	Professora Dra. Renata Spolon Lobato \\ 
 	UNESP - Campus de São José do Rio Preto \\\\
 	
 	Professor Dr. Aleardo Manacero Júnior \\
@@ -184,14 +184,13 @@
 		\par \null
 		\par \null
 		\par Este documento constitui a monografia produzida como resultado dos estudos especiais realizados pelo autor visando promover um levantamento bibliográfico inicial do tema de sua dissertação de mestrado. Foram inclusas as descrições essenciais de 14 trabalhos científicos na área de \textit{voice spoofing detection}, acrescidos ainda, das direções que caracterizam o tema do trabalho em questão visando a monografia de qualificação.
-		
-		\par No capítulo 1 é feita uma breve introdução.
-		
-		\par No capítulo 2 são feitas as revisões de conceitos e bibliográficas.
-		
+
+		%% Criar um texto mais fluido sem itens
+		\par No capítulo 1 é realizada uma breve introdução.
+		\par No capítulo 2 são realizadas as revisões de conceitos e bibliográficas.
 		\par Na seção 2.1 são revisados os conceitos de engenharia paraconsistente de características, filtros digitais \textit{wavelets}, amostragem,  quantização e o formato do arquivo \textit{wave} e caracterização dos processos de produção da voz humana.
 		
-		\par Na seção 2.2 é feita uma revisão bibliográfica que inclui uma seleção de trabalhos científicos dos últimos cinco anos relacionados ao tema da dissertação. 
+		\par Na seção 2.2 é realizada uma revisão bibliográfica que inclui uma seleção de trabalhos científicos dos últimos cinco anos relacionados ao tema da dissertação. 
 		
 		\par No capítulo 3 é mostrado um cronograma com a previsão da realização dos trabalhos.
 		
@@ -304,7 +303,6 @@
 							\label{fig:betacalculation}
 						\end{figure}
 						
-						
 						\begin{itemize}
 							\item Verdade $\rightarrow$ Fé total ($\alpha = 1$) e nenhum descrédito ($\beta = 0$)
 							\item Ambiguidade $\rightarrow$ Fé total ($\alpha = 1$) e descrédito total ($\beta = 1$)
@@ -358,13 +356,7 @@
 					\par No tocante a sua aplicação no problema a ser tratado a abordagem \textit{wavelet} será aquela baseada em filtros digitais que proporcionará a decomposição do sinal com o uso de filtros passa-baixa e passa-alta.
 					
 					\subsubsection{Mother wavelets}
-					Os filtros digitais baseados em wavelets são construídos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura \ref{fig:wavelets} mostra algumas das principais \textit{mother wavelets}.
-					\begin{figure}[h]
-						\centering
-						\includegraphics[width=0.7\linewidth]{images/wavelets}
-						\caption{Algumas mother wavelets}
-						\label{fig:wavelets}
-					\end{figure}
+					Os filtros digitais baseados em wavelets são construídos a partir das \textit{mother wavelets} que são funções as quais, dada uma escala, gerarão os valores necessários a filtragem do sinal. A figura mostra algumas das principais \textit{mother wavelets}.
 					
 					No contexto dos filtros digitais baseados em \textit{wavelets} o tamanho da janela recebe o nome de \textbf{suporte}, quando este é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}. As \textbf{mother wavelets}, para serem classificadas como tal, \textbf{necessariamente} precisam ter suporte compacto além de \textbf{integral igual a zero}.
 				
@@ -463,7 +455,7 @@
 					\end{pmatrix}
 				\end{equation}
 				
-				\par Feita a multiplicação é necessário agora montar o sinal filtrado, isso é feito escolhendo, dentro do resultado, valores alternadamente de forma que o vetor resultante seja:
+				\par realizada a multiplicação é necessário agora montar o sinal filtrado, isso é feito escolhendo, dentro do resultado, valores alternadamente de forma que o vetor resultante seja:
 
 				\begin{equation}
 					resultado = \Big[
@@ -477,7 +469,7 @@
 				\subsection{Amostragem, quantização e o formato do arquivo Wave}
 					\par Serão usados arquivos no formato \textit{wave} usando \textit{pulse-code modulation} (PCM), neste esquema os dados são armazenados sem perdas. O arquivo, segundo \cite{WAVE2019}, se estrutura como o ilustrado na figura \ref{fig:wavePcmStructure}.
 					
-					\par A taxa de amostragem de 44100hz permite, segundo o teorema de Nyquist, que seja feita a quantização de frequências de até 22050hz a uma resolução de 16bits.
+					\par A taxa de amostragem de 44100hz permite, segundo o teorema de Nyquist, que seja realizada a quantização de frequências de até 22050hz a uma resolução de 16bits.
 				
 					\begin{figure}[h]
 						\centering
@@ -517,7 +509,7 @@
 				%	\par O número de sobre posições no cálculo de R é de valor ou de intervalo?
 
 		\section{Trabalhos correlatos}
-			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de á\textsl{}udio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
+			\par No artigo \cite{Ren2019} foi apresentado um esquema de diferenciação entre a fala comum e aquela vinda de um dispositivo reprodutor. O foco da análise se dá na distorção causada pelo alto-falante segundo a energia e outras várias características do espectro do sinal. Uma base com 771 sinais de fala foi criada para cada um dos quatro dispositivos de gravação usados totalizando 3084 trechos de áudio. Uma \textit{support vector machine} (SVM) foi usada como classificador. De  acordo com os experimentos a \textit{taxa de verdadeiros positivos} é de 98,75\% e a \textit{taxa de verdadeiros negativos} é de 98,75\%.
 			
 			\par Em \cite{DiqunYan2019} é mostrado um método para diferenciar a voz de um locutor verdadeiro da voz gerada por sistemas usando sintetizadores baseados no \textit{modelo oculto de Markov} (HMM). SAS\cite{SAS2019} foi a escolha de base de dados. Este método usa coeficientes de características logarítmicos extraídos de wavelets que são apresentados a um classificador SVM. Os resultados obtidos tiverem, em média, mais de 99\% de acurácia.
 			
@@ -552,14 +544,14 @@
 			\par Neste trabalho \cite{ISI:000392503100008} é proposto o uso do \textit{gammatone frequency cepstral coefficients}(MGFCC). O gammatone é o produto de uma distribuição gamma com um sinal senoide e é usado na construção de filtros auditivos que, neste caso, são usados para extrair características do sinal de voz. A base de dados usada foi a ASVspoof 2015. O classificador usado foi um GMM e o EER chegou a 0,02556.
 
 			\subsection{Contextualização}
-			\par No trabalho proposto para dissertação de mestrado do autor a intenção é encontrar um conjunto de características que demonstrem ser as mais disjuntas possíveis, afim de melhorar o desempenho de classificadores em ataques de \textit{voice spoofing}. Caraterísticas essas com base na transformada \textit{wavelet}, devido a sua boa resolução em relação às dimensões de tempo e frequência. Essas características serão avaliadas usando a análise paraconsistente de acordo com o trabalho \cite{8588433} recentemente publicado.
+			\par No trabalho proposto para dissertação de mestrado do autor a intenção é encontrar um conjunto de características que demonstrem ser as mais disjuntas possíveis para fins de separação entre as classes, com o objetivo de melhorar a acurácia de classificadores para detecção de ataques de \textit{voice spoofing}. Caraterísticas essas com base na transformada \textit{wavelet}, devido a sua boa resolução em relação às dimensões de tempo e frequência. Essas características serão avaliadas usando a análise paraconsistente de acordo com o trabalho \cite{8588433} recentemente publicado.
 
 		\end{myenv}
 
 	\chapter{Cronograma para conclusão do curso de mestrado}
 		\begin{myenv}{1.5}
-			\par Até a presente data foram realizados os primeiros levantamentos para construção da base de dados com as vozes que serão objeto de pesquisa, essa base conta com um total de 21 gravações originais e outras 21 de \textit{playback} gravadas de pessoas com variados gêneros e idades contando de zero a nove em inglês. A ideia é que essa base possa crescer e abarcar boa tarde dos tipos de voz existentes na região. Também foram estudados e implementados filtros passa-baixa e passa-alta além de testadas metodologias de criação de vetores de características usando os intervalos pré-definidos MEL e BARK. 
-			\par Foi criada e melhorada uma biblioteca, baseada em códigos anteriormente já escritos, que facilita a manipulação dos arquivos de áudio, outra de análise paraconsistente e uma documentação extra constando boa parte das instruções recebidas do orientador.
+			\par Até a presente data foram realizados os primeiros levantamentos para construção da base de dados com as vozes que serão objeto de pesquisa. Essa base conta com um total de 21 gravações originais e outras 21 de \textit{playback} gravadas de pessoas com variados gêneros e idades pronunciando os dígitos de zero a nove em Inglês. A ideia é que essa base possa crescer e abarcar boa parte dos tipos de vozes existentes na região geografica proxima ao campus da UNESP de São José do Rio Preto. Também foram estudados e implementados filtros passa-baixas e passa-altas, além de testadas metodologias de criação de vetores de características usando os intervalos espectrais pré-definidos pelas bandas MEL e BARK. 
+			\par Foi melhorada a biblioteca criada e fornecida pelo orientador deste trabalho, a qual facilita a manipulação dos arquivos de áudio no formato \textit{wave}. Do mesmo modo, código-fonte para análise paraconsistente de características foi também desenvolvido e complementado com a devida documentação, a qual foi norteada por instruções recebidas do orientador.
 			\par Quanto aos trabalhos futuros a tabela \ref{Cronograma} mostra o cronograma previsto.
 			
 			\newcommand\ytl[2]{
