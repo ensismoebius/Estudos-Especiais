@@ -183,7 +183,7 @@
 		\fontsize{12}{\baselineskip} \selectfont \onehalfspacing
 		\par \null
 		\par \null
-		\par Este documento constitui a monografia produzida como resultado dos estudos especiais realizados pelo autor visando promover um levantamento bibliográfico inicial do tema de sua dissertação de mestrado. Foram inclusas as descrições essenciais de 14 trabalhos científicos na área de \textit{voice spoofing detection}, acrescidos ainda, das direções que caracterizam o tema do trabalho em questão visando a monografia de qualificação.
+		\par Este documento constitui a monografia produzida como resultado dos estudos especiais realizados pelo autor visando promover um levantamento bibliográfico inicial do tema de sua dissertação de mestrado. Foram inclusas as descrições essenciais de 15 trabalhos científicos na área de \textit{voice spoofing detection}, acrescidos ainda, das direções que caracterizam o tema do trabalho em questão visando a monografia de qualificação.
 		
 		\par No capítulo 1 é feita uma breve introdução. Iniciando as revisões de conceitos apresenta-se a engenharia paraconsistente de características, filtros digitais \textit{wavelets}, amostragem,  quantização e o formato do arquivo \textit{wave} e caracterização dos processos de produção da voz humana no capítulo 2 seção 1, a seguir, na seção 2 deste mesmo capítulo apresenta-se a revisão bibliográfica inicial. Finalmente no capítulo 3 é mostrado um cronograma com os trabalhos já realizados e uma previsão da realização dos próximos.
 		
@@ -206,7 +206,7 @@
 	\tableofcontents
 	\cleardoublepage
 	
-	% \nobibintoc para bibliografia nao aparecer no indice
+	% \nobibintoc para bibliografia não aparecer no índice
 	%% Glossário (gerado automaticamente - veja entradas em cap1.tex)
 	%\cleardoublepage
 	%\renewcommand{\nomname}{Glossário}
@@ -254,7 +254,7 @@
 						
 						\par Em seguida a obtenção de $\alpha$ se dá selecionando-se os maiores e os menores valores de cada uma das posições de todos os vetores de características de cada classe gerando assim um vetor para os valores maiores e outro para os menores.
 						
-						\par O \textbf{vetor de similaridade}$(svC_n)$ é obtido fazendo-se a diferença item-a-item dos maiores em relação aos menores.
+						\par O \textbf{vetor de similaridade}$(svC_n)$ é obtido fazendo-se a diferença item a item dos maiores em relação aos menores.
 						
 						\par Finalmente e para cada classe é tirada a média dos valores de cada vetor de similaridade, $\alpha$ é o menor valor dentre essas médias.
 						
@@ -344,11 +344,11 @@
 					\end{figure}
 
 				\subsection{Filtros digitais wavelets}
-					\par Filtros digitais \textit{wavelet} vem para suprir as deficiências em termos de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. \textit{Wavelets} contam com variadas funções filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
+					\par Filtros digitais \textit{wavelet} vem para suprir as deficiências de janelamento de sinal apresentadas pelas transformadas de Fourier e pelas transformadas curtas de Fourier. \textit{Wavelets} contam com variadas funções filtro e tem tamanho de janela variável o que permite uma análise multirresolução \cite{Rod5254905}.
 					
 					\par As \textit{wavelets} proporcionam a análise do sinal de forma detalhada tanto no espectro de baixa frequência quanto no de alta frequência.
 					
-					\par É importante observar que, quando se trata de transformada \textit{wavelet} seis elementos estão presentes: dois filtros de análise, dois filtros de síntese e as funções ortogonais \textit{scaling} e \textit{wavelet}. No tocante a sua aplicação só a transformada direta, e não a inversa, será usada na construção dos vetores de características então os filtros de síntese, a função \textit{scaling} e a função \textit{wavelet} não serão elementos abordados aqui, pois, esses só interessariam caso houvesse a necessidade da transformada inversa. A abordagem usada será baseada nos filtros de análise digitais que proporcionarão a decomposição do sinal com o uso de filtros passa-baixa e passa-alta estritamente no domínio discreto.
+					\par É importante observar que, quando se trata de transformada \textit{wavelet} seis elementos estão presentes: dois filtros de análise, dois filtros de síntese e as funções ortogonais \textit{scaling} e \textit{wavelet}. No tocante a sua aplicação só a transformada direta, e não a inversa, será usada na construção dos vetores de características então os filtros de síntese, a função \textit{scaling} e a função \textit{wavelet} não serão elementos abordados aqui, pois, esses só interessariam caso houvesse a necessidade da transformada inversa. A abordagem usada será baseada nos filtros de análise digitais que proporcionarão a decomposição do sinal com o uso de filtros passa baixas e passa altas estritamente no domínio discreto.
 		
 					\par No contexto dos filtros digitais baseados em \textit{wavelets} o tamanho da janela recebe o nome de \textbf{suporte}. Janelas definem o tamanho do filtro que será aplicado ao sinal quando esse é pequeno se diz que a janela tem \textbf{um suporte compacto} \cite{robi2003}.
 				
@@ -513,7 +513,7 @@
 
 			\par Para detecção de voice spoofing  \cite{ISI:000473343500086} importa do campo de processamento de imagens o conceito de textura, para o processamento de voz esse conceito é chamado de "texturas de voz". Padrões binários locais (LBP) e seu respectivo histograma são usados para a construção do vetor de características que será avaliado por uma SVM. A base de dados usada para testes foi a ASVspoof 2015. A taxa máxima de acurácia conseguida foi de 0,7167.
 			
-			\par Uma abordagem que combina análise de sinal de fala usando a \textit{transformada de constante Q} (CQT) com o processamento cepstral é mostrada em \cite{TODISCO2017516}, essa técnica resulta no que se chama \textit{coeficientes cepstrais de constante Q}(CQCCs), segundo o artigo, a vantagem destes coeficientes é a resolução espectro temporal variável. As base de dados usadas foram a RedDots \cite{redDots}, ASVspoof 2015 e AVSpoof. Foram usados thês classificadores:
+			\par Uma abordagem que combina análise de sinal de fala usando a \textit{transformada de constante Q} (CQT) com o processamento cepstral é mostrada em \cite{TODISCO2017516}, essa técnica resulta no que se chama \textit{coeficientes cepstrais de constante Q}(CQCCs), segundo o artigo, a vantagem destes coeficientes é a resolução espectro temporal variável. As base de dados usadas foram a RedDots \cite{redDots}, ASVspoof 2015 e AVSpoof. Foram usados três classificadores:
 			\begin{itemize}
 				\item DA-IICT: Uma fusão de dois classificadores GMM, sendo que um deles usa \textit{coeficientes cepstrais de frequência MEL}(MFCC) e o outro usa características CFCC-IF \cite{Patel2015}.
 				\item STC \cite{7472724}.
@@ -532,6 +532,8 @@
 			\par Considerando o envelopamento das amplitudes e das frequências instantâneas em cada banda estreita filtrada,  \cite{ISI:000458728700054} discute como diferenciar um sinal legítimo de um falso. A base de dados usada foi a  ASVSpoof 2015. Um GMM foi usado como classificador e, em relação ao desempenho, o método chegou a ter um EER de 0,045.
 
 			\par Neste trabalho \cite{ISI:000392503100008} é proposto o uso do \textit{gammatone frequency cepstral coefficients}(MGFCC). O gammatone é o produto de uma distribuição gamma com um sinal senoide e é usado na construção de filtros auditivos que, neste caso, são usados para extrair características do sinal de voz. A base de dados usada foi a ASVspoof 2015. O classificador usado foi um GMM e o EER chegou a 0,02556.
+			
+			\par Segundo \cite{8396208} \textit{Hashing} sensível a locus(LSH) é frequentemente usado como um classificador para problemas relacionados a \textit{big data}, neste trabalho é proposto uma junção de MFCC e LSH a fim de se reconhecer o locutor. Neste método o MFCC é extraído dos arquivos de sinal para posterior aplicação do LSH gerando assim uma tabela \textit{hash}, estes valores de \textit{hash} são então comparados identificando assim o locutor ou locutora. Nos testes realizados houve uma acurácia de 92,66\%. A base de dados usada foi a TIMIT 2018 \cite{TIMIT2018}. 
 
 			\subsection{Contextualização}
 			\par No trabalho proposto para dissertação de mestrado do autor a intenção é encontrar um conjunto de características que demonstrem ser as mais disjuntas possíveis para fins de separação entre as classes, com o objetivo de melhorar a acurácia de classificadores para detecção de ataques de \textit{voice spoofing}. Caraterísticas essas com base na transformada \textit{wavelet}, devido a sua boa resolução em relação às dimensões de tempo e frequência. Essas características serão avaliadas usando a análise paraconsistente de acordo com o trabalho \cite{8588433} recentemente publicado.
@@ -540,7 +542,7 @@
 
 	\chapter{Cronograma para conclusão do curso de mestrado}
 		\begin{myenv}{1.5}
-			\par Até a presente data foram realizados os primeiros levantamentos para construção da base de dados com as vozes que serão objeto de pesquisa. Essa base conta com um total de 21 gravações originais e outras 21 de \textit{playback} gravadas de pessoas com variados gêneros e idades pronunciando os dígitos de zero a nove em Inglês. A ideia é que essa base possa crescer e abarcar boa parte dos tipos de vozes existentes na região geografica proxima ao campus da UNESP de São José do Rio Preto. Também foram estudados e implementados filtros passa-baixas e passa-altas, além de testadas metodologias de criação de vetores de características usando os intervalos espectrais pré-definidos pelas bandas MEL e BARK. 
+			\par Até a presente data foram realizados os primeiros levantamentos para construção da base de dados com as vozes que serão objeto de pesquisa. Essa base conta com um total de 21 gravações originais e outras 21 de \textit{playback} gravadas de pessoas com variados gêneros e idades pronunciando os dígitos de zero a nove em Inglês. A ideia é que essa base possa crescer e abarcar boa parte dos tipos de vozes existentes na região geográfica próxima ao campus da UNESP de São José do Rio Preto. Também foram estudados e implementados filtros passa baixas e passa altas, além de testadas metodologias de criação de vetores de características usando os intervalos espectrais pré-definidos pelas bandas MEL e BARK. 
 			\par Foi melhorada a biblioteca criada e fornecida pelo orientador deste trabalho, a qual facilita a manipulação dos arquivos de áudio no formato \textit{wave}. Do mesmo modo, código-fonte para análise paraconsistente de características foi também desenvolvido e complementado com a devida documentação, a qual foi norteada por instruções recebidas do orientador.
 			\par Quanto aos trabalhos futuros a tabela \ref{Cronograma} mostra o cronograma previsto.
 			
