@@ -1,0 +1,72 @@
+Titulo: Monografia de estudos especiais
+SubTitulo: Monografia apresentada para complemento da disciplina de estudos especiais do curso de mestrado.
+
+Resumo:
+Este documento constitui uma monografia da disciplina de estudos especiais contendo um levantamento bibliográfico dos estudos já realizados.
+
+Referências:
+Referência é o que, de fato, foi referênciado no texto.
+
+Capitulo 1 - Introdução (1 ou 2 páginas)
+Apresentar sobre o que se vai falar.
+
+Capitulo 2 - Revisão de conceitos e bibliográfica
+	- Trabalhos correlatos
+		- Pegar uns 15(!) artigos/trabalhos e escrever sobre cada um deles 01 parágrafo sucinto, nesse parágrafo constarão: "No artigo \ref{artigo} os autores apresentam/fazem e utilizaram tais características (ex: Energia, entropia, etc.) usaram tal classificador, a base de dados que eles utilizaram tem tantos sinais, é a base tal, e os resultados que eles conseguiram foram tais". Podem ser constituidas de:
+			- Eventuais dissertações de mestrado.
+			- Eventuais teses de doutorado
+			- E principalmente artigos ciêntificos publicados em periódicos ou até em conferências encontrados no "web of science", ou seja, na base do IEEE ou na base do Science Direct (ver o link que ele passou).
+			- Os trabalhos devem ser dos últimos 5 anos (a partir de 2014/2015) que falam sobre o mesmo tema (voice spoofing e sistemas de autenticação biométrica por voz).
+			- Se for possível, tente encontrar algum trabalho que também utilize wavelets juntamente com voice spoofing e autenticação biométrica por voz).
+			- Tentar achar um que use análise paraconsistente e wavelets (pouco provável).
+			- Tentar chegar o mais perto possivel do que se está fazendo.
+
+		- Parágrafo final nessa seção para contextualizar o trabalho: Situar o que eu pretendo fazer: "No trabalho proposto para dissertação de mestrado do autor, a intenção é de encontrar caracteriscas propícias, ou ainda, testar, avaliar algumas características para fins de voice spoofing,, características essas com base na trasnformada wavelet pois é uma técnica interessante no dominio do tempo e da frequência. Essas características serão avaliadas pela análise paraconsistente de caracteríscas de acordo com o artigo tal, que é uma técnica recente <publicada este ano(???)> o que acaba diferenciando este trabalho dos demais.
+
+	- Conceitos utilizados (Explica o conceitos estão sendo usados e porquê estão sendo usados)
+		- Nota: Sempre que revisar algum conceito é importante fazer pequena menção no fim deixando claro a intenção de uso do conceito revisado no trabalho: "A intenção é usar este conceito neste trabalho em tal lugar para fazer tal coisa..."
+
+		- Revisar os conceitos que, pelos até o momento, estarão sendo usados para fazer a dissertação.
+			-Revisar a engenharia paraconsistente de características com base no artigo já passado.
+			-Revisar os conceitos essenciais da transformada wavelet.
+				-Sobre o filtros se deve caracterizar os:
+					-haar
+					-daubechies
+					-simlet
+					-coiflets
+					-Pedir no whatsapp
+				-Tentar não se aprofundar desnecessáriamente em, por exemplo, wavelets continuas, fique restrito ao que se vai usar, ou seja, transformada wavelet discreta (algoritmo de Malat): Focar mais nos filtros digitais: "Wavelet é isso, estou usndo por causa disso, quando faço a transformada o algoritmo de malat funciona de tal forma..."
+
+				-Apenas MENCIONAR o principio de Heisenberg sem entrar muito na questão.
+
+				-O uso mais comum de uso das wavelets é a energia normalizada das bandas, a entropia das bandas e taxa de cruzamento por zero das bandas.
+
+			-Revisar (opcional) a caracterização da vóz humana: Processo de produção do sinais de fala, nisto entrarão os termos "vozeado" e "não vozeado", "pitch ou F0", "frequências formantes e antes-formantes e as resonãncias do trato vol f1, f2, f3, etc." 
+			-Revisar (opcional) Conceito mais elementar de processamento de sinais, amostragem, quantização, digitalização, formato de arquivos wave (seja breve aqui). 
+
+			-Revisar (brevemente [3 ou 4 linhas]) o que deve ser extraido da transformada wavelet:
+				- A energia?	
+				- A quantidade de cruzamentos por zero (zcr) ?
+				- A entropia de cada banda e/ou sub-banda?
+Capitulo 3 - Cronograma para conclusão do curso de mestrado (1 pag e meia no máximo)
+	- Colocar que pretende usar uma base de dados 
+	- Colocar o que já foi feito
+	- Até mês tal se pretende fazer tal coisa
+
+Na qualificação:
+
+Capitulo 3:
+	- Descrever a técnica proposta: "Peguei a base tal, extrai dado tal, usei a lógica paraconsistente assim..."
+
+Capitulo 4 - testes e resultados:
+	- "Então quando eu usei tal característica derivada de tal wavelets tive resultado tal.."
+
+Capitulo 5
+	Conclusão
+
+- - - - - - - - - - - - - - - - - - -
+O que deve aparecer na revisão bibliográfica
+	Dado o objetivo do trabalho que é, de uma forma ou de outra, poder caracterizar voice spoofing.
+		 
+Procurar no web of science: Voice spoofing, voice spoofing wavelet.
+Em geral as informações estão abstract e as conclusões.
