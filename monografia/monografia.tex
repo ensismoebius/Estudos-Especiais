@@ -154,7 +154,7 @@
 	\fontsize{14}{\baselineskip} \selectfont
 	Professor Dr. Rodrigo Capobianco Guido \\ 
 	UNESP - Campus de São José do Rio Preto \\
-	Co-Orientador \\\\
+	Orientador \\\\
 	
 	Professora Dra. Veronica Oliveira de Carvalho \\ 
 	UNESP - Campus de Rio Claro \\\\
@@ -210,13 +210,6 @@
 	\tableofcontents
 	\cleardoublepage
 	
-	% \nobibintoc para bibliografia não aparecer no índice
-	%% Glossário (gerado automaticamente - veja entradas em cap1.tex)
-	%\cleardoublepage
-	%\renewcommand{\nomname}{Glossário}
-	%\markboth{GLOSSáRIO}{GLOSSáRIO}
-	%\addcontentsline{toc}{chapter}{\nomname}
-	%\printnomenclature
 	\mainmatter
 	\setlength{\parindent}{1.25cm}
 
@@ -780,44 +773,6 @@
 				\caption{Cronograma}
 			\end{table}
 	\end{myenv}
-
-	\chapter{Apêndice}
-	\label{ch:apendice}
-	\begin{myenv}{1.5}
-		\section{\textit{F1 score}}
-		\label{sec:f1scoresec}
-		\par O \textit{F1 score} é uma medida de desempenho utilizada em tarefas de classificação para avaliar o equilíbrio entre precisão e \textit{recall}. É uma métrica única que combina as duas medidas em um único valor, frequentemente usada quando lidamos com conjuntos de dados desbalanceados, nos quais a distribuição das classes é desigual.
-		
-		\par Para entender o \textit{F1 score}, vamos primeiro definir precisão e \textit{recall}:
-		
-		\begin{itemize}
-			\item Precisão: Mede a proporção de instâncias positivas corretamente previstas (verdadeiros positivos) em relação a todas as instâncias previstas como positivas (verdadeiros positivos mais falsos positivos).
-			
-			\item \textit{Recall}: Mede a proporção de instâncias positivas corretamente previstas (verdadeiros positivos) em relação a todas as instâncias positivas reais (verdadeiros positivos mais falsos negativos). O \textit{recall} representa a capacidade do modelo de identificar todas as instâncias positivas.
-		\end{itemize}
-		
-		\par Considerando isso o \textit{F1 score} é dados pela equação \ref{eq:f1score}:
-		
-		\begin{equation}
-			\label{eq:f1score}
-			\textit{F1 score} = 2 \times \frac{\textit{precisão} \times \textit{recall}}{\textit{precisão} + 	\textit{recall}}
-		\end{equation}
-		
-		\par Essa métrica é considerada uma média harmônica, sendo assim, dá mais peso a valores mais baixos, fornecendo uma medida equilibrada que considera tanto a precisão quanto o \textit{recall}.
-	\end{myenv}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	\bibliography{bibliography.bib}
 	\bibliographystyle{alpha}
