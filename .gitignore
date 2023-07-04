@@ -1,3 +1,6 @@
+*.snm
+*.out
+*.nav
 *.pdf
 *.aux
 *.blg
