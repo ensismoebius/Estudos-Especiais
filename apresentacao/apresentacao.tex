@@ -8,6 +8,9 @@
 % Enables code listing
 \usepackage{listings}
 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
 %Enables the use of greek letter without a math context
 \usepackage{ragged2e}
 
@@ -218,25 +221,6 @@
 		}
 
 		\only<3>{
-			\framesubtitle{\textit{Wavelets} de Daubechies}
-			\begin{columns}
-			\column{0.5\textwidth}
-				\begin{figure}
-					\centering
-					\includegraphics[width=\linewidth]{../monografia/images/daubechies}
-					\caption{platôs maximamente planos em um filtro digital}
-					\label{fig:daubechies}
-				\end{figure}
-			\column{0.5\textwidth}
-				\begin{figure}
-					\centering
-					\includegraphics[width=\linewidth]{../monografia/images/noMaximallyFlat}
-					\caption{platôs não maximamente planos de um filtro digital}
-					\label{fig:nomaximallyflat}
-				\end{figure}
-			\end{columns}
-		}
-		\only<4>{
 			\framesubtitle{Algoritmo de Malat}
 			\begin{itemize}
 				\item \textit{Wavelet} Haar: $h[\cdot] = [\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}]$.
@@ -315,26 +299,51 @@
 	\begin{frame}
 		\frametitle{Redes Neurais}
 		\framesubtitle{Autoencoders}
-		\begin{itemize}
-			\item Autoencoders são redes neurais treinadas para reconstruir seus dados de entrada.
-			\item Consistem em uma função codificadora $h = f(x)$ e uma função decodificadora $r = g(h)$.
-			\item A camada oculta $h$ representa uma representação comprimida dos dados de entrada.
-			\item O objetivo é aprender uma representação compactada dos dados e reconstruir os dados de entrada com a maior precisão possível.
-			\item Os autoencoders são limitados para apenas aproximar a entrada e priorizar certos aspectos dos dados.
-			\item Podem ser treinados usando técnicas como gradient descent com minibatch ou estocástico.
-		\end{itemize}
+		\begin{columns}[t]
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item Consistem em uma função codificadora $h = f(x)$ e uma função decodificadora $r = g(h)$.
+					\item A camada oculta $h$ representa uma representação comprimida dos dados de entrada.
+					\item Nem sempre o objetivo é aprender uma representação compactada dos dados e reconstruir os dados de entrada com a maior precisão possível.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item Os autoencoders são limitados para apenas aproximar a entrada e priorizar certos aspectos dos dados.
+					\item Podem ser treinados usando técnicas como gradient descent com minibatch ou estocástico.
+				\end{itemize}
+				\begin{figure}[h]
+					\centering
+       				\resizebox{\textwidth}{!}{\input{../monografia/images/autoencoder.tex}}
+					\label{fig:autoencoder}
+				\end{figure}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{Redes Neurais}
 		\framesubtitle{ResNets}
-		\begin{itemize}
-			\item As ResNets incluem conexões de salto ou mapeamentos de identidade.
-			\item Essas conexões permitem que a saída de uma camada seja adicionada diretamente à entrada da camada subsequente.
-			\item Permitem que redes mais profundas possam aprender e evitam o problema de vanishing gradients.
-			\item As conexões de salto criam "highway connections" que contornam as camadas intermediárias.
-			\item Melhoram o desempenho e a capacidade de aprendizado das redes.
-		\end{itemize}
+		\begin{columns}[t]
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item As ResNets incluem conexões de salto ou mapeamentos de identidade.
+					\item Essas conexões permitem que a saída de uma camada seja adicionada diretamente à entrada da camada subsequente.
+					\item Permitem que redes mais profundas possam aprender e evitam o problema de \textit{vanishing gradients}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item As conexões de salto criam "highway connections" que contornam as camadas intermediárias.
+					\item Melhoram o desempenho e a capacidade de aprendizado das redes.
+				\end{itemize}
+				\begin{figure}
+					\centering
+					\includegraphics[width=\linewidth]{../monografia/images/residualBlock}
+					\label{fig:residualblock}
+				\end{figure}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	
 	\begin{frame}
